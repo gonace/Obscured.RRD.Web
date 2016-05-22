@@ -1,0 +1,15 @@
+.error-container
+  .inner
+    %img.pull-right{:src => '/images/homer-doh.png', :width => '250px', :style => 'margin-left: 50px'}
+    %div
+      %h1 Doh!
+      %h3 Sorry, Something went wrong
+      %p.lead There was a problem serving the requested page!
+      %code Error code: 500
+
+      - if flash[:error_type] and flash[:error_message]
+        .bs-callout.bs-callout-danger
+          %h4
+            = flash[:error_type]
+          %p
+            = flash[:error_message]

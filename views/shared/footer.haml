@@ -1,0 +1,28 @@
+%footer.bs-docs-footer{:role => 'contentinfo', :class => 'homer-confused'}
+  .container
+    %ul.bs-docs-footer-links
+      %li
+        %a{:href => 'https://bitbucket.org/adeprimo/'} Bitbucket
+      %li
+        %a{:href => 'https://twitter.com/adeprimo'} Twitter
+      %li
+        %a{:href => 'http://wiki.adeprimo.se/display/PAYWAYDOC/Payway+FAQ+Beredskap'} FAQ
+      %li
+        %a{:href => 'http://wiki.adeprimo.se/display/PAYWAYDOC/Homer'} About
+      %li
+        %a{:href => 'http://status.payway.worldoftulo.com/'} StatusPage
+      %li
+        %a{:href => 'https://payway-dash.herokuapp.com/payway'} Dashboard
+      %li
+        %a{:href => 'https://9858429c0089d56744845ff1f45d2df8.eu-west-1.aws.found.io/goto/2ea904a8c63ebab26b12b6831cfa543f'} Kibana
+    %p
+      Obscured.RRD <a href="#">1.0</a>, designed and built with all the love in the world by
+      %a{:href => 'http://www.getbootstrap.com', :target => '_blank'} @bootstrap
+      and
+      = succeed '.' do
+        %a{:href => 'http://www.obscured.se/', :target => '_blank'} @obscured
+      Maintained by
+      = succeed '.' do
+        %a{:href => 'http://www.gonace.com/', :target => '_blank'} @gonace
+    - if defined? render_time
+      %p Page rendered in #{Time.now - render_time} seconds

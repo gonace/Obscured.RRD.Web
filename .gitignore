@@ -1,0 +1,11 @@
+*.gem
+.bundle
+pkg/*
+doc/*
+.idea/*
+/public/doc/*
+.yardoc/*
+*log
+.DS_Store
+vendor/
+!apps/external_api/public/api_documentation/vendor

@@ -1,0 +1,18 @@
+!!! 5
+%html
+  %head
+    %meta{:charset => 'UTF-8'}
+    %meta{:content => 'MRTG/RRD Graphing Frontend', :name => 'description' }
+    %meta{:content => 'Obscured', :name => 'author' }
+    %title= "#{title} (Willie)"
+    %link{:rel => 'icon', :type => 'image/x-icon', :href => '/homer/img/favicon.ico'}
+    = partial :'../shared/partials/styles'
+
+  %body.bs-docs-home
+    = haml :'../shared/header'
+
+
+    = yield
+
+
+    = haml :'../shared/footer', :locals => { :render_time => render_time }

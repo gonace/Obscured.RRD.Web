@@ -1,0 +1,13 @@
+!!! 5
+%html
+  %head
+    %meta{:charset => 'UTF-8'}
+    %meta{:content => 'MRTG/RRD Graphing Frontend', :name => 'description' }
+    %meta{:content => 'Obscured', :name => 'author' }
+    %title=title
+    %link{:rel => 'icon', :type => 'image/x-icon', :href => '/homer/img/favicon.ico'}
+    = partial :'../shared/partials/styles'
+    = partial :'../shared/partials/scripts'
+
+  %body.bs-docs-home
+    = yield
