@@ -63,9 +63,6 @@ module Obscured
   end
 
   def self.get_config_value(key, subst={})
-    if override.has_key?(key.to_sym)
-      return override[key.to_sym]
-    end
     val = key.to_s.split('.').inject(@config) { |h, k| h[k] }
     return subst.inject(val) {|result, (key, sub)| result.gsub("%{#{key}}", sub)}
   end

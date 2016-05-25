@@ -9,6 +9,8 @@ require 'haml'
 require 'json'
 require 'pp'
 require 'rack/cache'
+require 'recursive-open-struct'
+require 'rrd'
 require 'sinatra/config_file'
 require 'sinatra/cookies'
 require 'sinatra/flash'
@@ -22,7 +24,7 @@ require 'sinatra/partial'
 require 'controllers/BaseController'
 require 'controllers/ErrorsController'
 require 'controllers/HomeController'
-require 'controllers/MetricController'
+require 'controllers/MetricsController'
 
 
 ###
