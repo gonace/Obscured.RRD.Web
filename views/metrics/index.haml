@@ -1,6 +1,6 @@
 #content.bs-docs-header{:tabindex => '-1', :class => 'willie-angry'}
   .container
-    %h1= "Metrics for #{name.capitalize}"
+    %h1= "Metrics for #{name_server.capitalize}"
     %p An overview of the selected background job, the job type, state, and ways to correct eventual errors.
 
 .container.bs-docs-container
@@ -13,56 +13,24 @@
 
   .row
     .col-md-10
-      %h1.page-header#hardware Hardware
-      .panel.panel-default#hardware-cpu
-        .panel-heading
-          CPU Utilization (%)
-        .panel-body
-          %img{:src => "/graphs/#{name}.cpu.daily.png", :alt => 'gimli.cpu.daily.png', width: '100%'}
-
-      .panel.panel-default#hardware-memory
-        .panel-heading
-          Memory Usage (Mb/Gb)
-        .panel-body
-          %img{:src => "/graphs/#{name}.mem.daily.png", :alt => 'gimli.cpu.daily.png', width: '100%'}
-
-      .panel.panel-default#hardware-temperature
-        .panel-heading
-          Temperature (℃)
-        .panel-body
-          %img{:src => "/graphs/#{name}.temperature.daily.png", :alt => 'gimli.cpu.daily.png', width: '100%'}
-
-      %h1.page-header#network Network
-      .panel.panel-default#network-iface-1
-        .panel-heading
-          Network traffic (Mb/s)
-        .panel-body
-          %img{:src => "/graphs/#{name}.iface.1.daily.png", :alt => 'gimli.iface.1.daily.png', width: '100%'}
-
-      .panel.panel-default#network-iface-2
-        .panel-heading
-          Network traffic (Mb/s)
-        .panel-body
-          %img{:src => "/graphs/#{name}.iface.2.daily.png", :alt => 'gimli.iface.2.daily.png', width: '100%'}
-
+      - metrics.each do |category|
+        %h1.page-header{ :id => category.name}= category.name
+        - category.graphs.each do |graph|
+          .panel.panel-default{ :id => graph.image }
+            .panel-heading
+              = graph.name
+            .panel-body
+              %a{:href => "/metric/#{name_group}/#{name_server}/#{graph.id}" }
+                %img{:src => "/graphs/#{name_server}/#{graph.image}", :alt => graph.name, width: '100%'}
 
     .col-md-2{:role => 'complementary'}
       %nav.bs-docs-sidebar.hidden-print.hidden-xs.hidden-sm.affix
         %ul.nav.bs-docs-sidenav
-          %li
-            %a{:href => '#hardware'} Hardware
-            %ul.nav
-              %li
-                %a{:href => '#hardware-cpu'} CPU Utilization (%)
-              %li
-                %a{:href => '#hardware-memory'} Memory Usage (Mb/Gb)
-              %li
-                %a{:href => '#hardware-temperature'} Temperature (℃)
-          %li.active
-            %a{:href => '#network'} Network
-            %ul.nav
-              %li
-                %a{:href => '#network-iface-1'} Interface 1 (Mb/s)
-              %li
-                %a{:href => '#network-iface-2'} Interface 2 (Mb/s)
+          - metrics.each do |category|
+            %li
+              %a{:href => "##{category.name}"}= category.name
+              %ul.nav
+                - category.graphs.each do |graph|
+                  %li
+                    %a{:href => "##{graph.image}"}= graph.image
         %a.back-to-top{:href => '#top'} Back to top

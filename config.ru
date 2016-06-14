@@ -17,6 +17,10 @@ map('/error') {
   run ErrorController
 }
 
+map('/metric') {
+  run MetricController
+}
+
 map('/metrics') {
   run MetricsController
 }

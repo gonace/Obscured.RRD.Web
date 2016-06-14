@@ -19,11 +19,19 @@ require 'sinatra/partial'
 
 
 ###
+# Entities
+###
+require 'entities/category'
+require 'entities/graph'
+
+
+###
 # Controllers
 ##
 require 'controllers/BaseController'
 require 'controllers/ErrorsController'
 require 'controllers/HomeController'
+require 'controllers/MetricController'
 require 'controllers/MetricsController'
 
 
@@ -32,3 +40,10 @@ require 'controllers/MetricsController'
 ###
 require 'helpers/config'
 require 'helpers/logger'
+require 'helpers/metric'
+require 'helpers/metrics/cpu'
+require 'helpers/metrics/disk'
+require 'helpers/metrics/memory'
+require 'helpers/metrics/temperature'
+require 'helpers/metrics/traffic'
+require 'helpers/metrics/uptime'

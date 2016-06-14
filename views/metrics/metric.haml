@@ -1,0 +1,35 @@
+#content.bs-docs-header{:tabindex => '-1', :class => 'willie-angry'}
+  .container
+    %h1= "#{name_metric.capitalize} for #{name_server.capitalize}"
+    %p An overview of the selected background job, the job type, state, and ways to correct eventual errors.
+
+.container.bs-docs-container
+  .row
+    .col-md-12
+      - if flash[:metrics_error]
+        .alert.alert-danger
+          %strong Oh snap!
+          = flash[:metrics_error]
+
+  .row
+    .col-md-10
+      - metrics.each do |category|
+        %h1.page-header{ :id => category.name}= category.name
+        - category.graphs.each do |graph|
+          .panel.panel-default{ :id => graph.image }
+            .panel-heading
+              = graph.name
+            .panel-body
+              %img{:src => "/graphs/#{name_server}/#{graph.image}", :alt => graph.name, width: '100%'}
+
+    .col-md-2{:role => 'complementary'}
+      %nav.bs-docs-sidebar.hidden-print.hidden-xs.hidden-sm.affix
+        %ul.nav.bs-docs-sidenav
+          - metrics.each do |category|
+            %li
+              %a{:href => "##{category.name}"}= category.name
+              %ul.nav
+                - category.graphs.each do |graph|
+                  %li
+                    %a{:href => "##{graph.image}"}= graph.image
+        %a.back-to-top{:href => '#top'} Back to top

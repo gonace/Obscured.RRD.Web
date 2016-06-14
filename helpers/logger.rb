@@ -19,8 +19,18 @@ module Obscured
       puts "I, [#{datetime} ##{Process.pid}]  (OBSCURED) INFO -- : #{msg}"
     end
 
-    def debug(msg)
-      puts "D, [#{datetime} ##{Process.pid}]  (OBSCURED) DEBUG -- : #{msg}"
+    def debug(msg, object=nil)
+      if !msg.blank?
+        puts "D, [#{datetime} ##{Process.pid}]  (OBSCURED) DEBUG -- : #{msg}"
+      end
+
+      if (!object.nil?)
+        puts '#################'
+        puts '###   DEBUG   ###'
+        puts '#################'
+        pp object
+        puts '#################'
+      end
     end
 
     def warning(msg)

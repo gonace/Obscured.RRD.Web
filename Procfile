@@ -1,1 +1,1 @@
-application:                  bundle exec rackup -p 9444 -Eutf-8:utf-8 config.ru
+web:                  bundle exec rackup -p 9444 -Eutf-8:utf-8 config.ru
