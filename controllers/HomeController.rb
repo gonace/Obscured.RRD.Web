@@ -7,10 +7,6 @@ class HomeController < BaseController
     begin
       groups = Obscured.c('data.sources.groups')
 
-      puts '#################'
-      puts '###   DEBUG   ###'
-      puts '#################'
-
       metrics = []
       groups.each do |group|
         group['nodes'].each do |node|
@@ -32,8 +28,6 @@ class HomeController < BaseController
           end
         end
       end
-      pp metrics
-      puts '#################'
     rescue ArgumentError => e
       flash[:metrics_error] = "I'm sad to say that he found an error: #{e.message}"
     end
