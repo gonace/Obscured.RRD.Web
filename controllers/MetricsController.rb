@@ -1,24 +1,28 @@
 class MetricsController < BaseController
   set :views, settings.root + '/../views/metrics'
 
-  get '/:group/:name' do
-    raise ArgumentError, 'No server name provided' unless params[:name]
+  get '/:group/:path' do
     raise ArgumentError, 'No group id provided' unless params[:group]
+    raise ArgumentError, 'No server name provided' unless params[:path]
+
 
     render_time = Time.now
-    name_server = params[:name]
-    name_group = params[:group]
+    server_group = params[:group]
+    server_path = params[:path]
+    server_name = ''
 
     begin
       graph_root = settings.root + '/../public/graphs'
-      group = Obscured.c('data.sources.groups').find{|a| a['name'] == name_group}
-      node = group['nodes'].find {|n| n['name'] == name_server.capitalize}
+      group = Obscured.c('data.sources.groups').find{|a| a['name'] == server_group}
+      node = group['nodes'].find {|n| n['path'] == server_path}
       offsets = [Obscured.c('graph.offsets.weekly')]
+      server_name = node['name']
 
-      if !Dir.exists? graph_root + "/#{name_server}"
-        Dir.mkdir graph_root + "/#{name_server}"
+      if !Dir.exists? graph_root + "/#{server_path}"
+        Dir.mkdir graph_root + "/#{server_path}"
       end
       Obscured::Metric.generate(:node => node, :offsets => offsets, :graph_root => graph_root)
+
 
       metrics = []
       node['metrics'].each do |metric|
@@ -33,7 +37,7 @@ class MetricsController < BaseController
 
         index_category = metrics.find_index {|m| m.name == metric['category'].to_s.capitalize}
         if index_category >= 0
-          metrics[index_category].graphs.push Obscured::Entities::Graph.new(metric_file, metric_title, metric_image, metric_type)
+          metrics[index_category].graphs.push Obscured::Entities::Graph.new(metric_file, metric_title, metric_image, metric_type, Obscured::Entities::Node.new(node['name'], node['path'], group['name'], node['type'].to_s))
         end
       end
     rescue ArgumentError => e
@@ -41,9 +45,8 @@ class MetricsController < BaseController
     end
 
     haml :index, :locals => {:render_time => render_time,
-                             :title => name_server.capitalize,
-                             :name_server => name_server,
-                             :name_group => name_group,
+                             :title => server_name,
+                             :server_name => server_name,
                              :metrics => metrics,
                              :expression => 'homer-excited'}
   end

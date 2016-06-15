@@ -82,10 +82,26 @@ data:
   root: '/data'
   sources:
     groups:
+      - name: 'core.obscured.se'
+        nodes:
+          - name: 'Backbone'
+            path: 'core'
+            type: :switch
+            metrics:
+              - title: 'Aggregated traffic (%{suffix})'
+                category: :network
+                type: :traffic
+                highlighted: true
+                files: 'aggregate.traffic.rrd'
+              - title: 'Core traffic (%{suffix})'
+                category: :network
+                type: :traffic
+                highlighted: true
+                files: 'core.traffic.rrd'
       - name: 'ore01.obscured.se'
         nodes:
           - name: 'Boromir'
-            path: '/boromir'
+            path: 'boromir'
             type: :switch
             metrics:
               - title: 'Port 1 (0:1) Traffic (%{suffix})'
@@ -148,22 +164,8 @@ data:
                 type: :traffic
                 category: :vlan
                 files: 'boromir.vlan.4001.rrd'
-          - name: 'Core'
-            path: '/core'
-            type: :switch
-            metrics:
-              - title: 'Aggregated traffic (%{suffix})'
-                category: :network
-                type: :traffic
-                highlighted: true
-                files: 'aggregate.traffic.rrd'
-              - title: 'Core traffic (%{suffix})'
-                category: :network
-                type: :traffic
-                highlighted: true
-                files: 'core.traffic.rrd'
           - name: 'Gimli'
-            path: '/gimli'
+            path: 'gimli'
             type: :router
             metrics:
               - type: :temperature
@@ -211,7 +213,7 @@ data:
                 name: 'gimli.vlan.load'
                 files: ['gimli.iface.5.rrd','gimli.iface.6.rrd','gimli.iface.7.rrd','gimli.iface.8.rrd','gimli.iface.9.rrd']
           - name: 'Pippin'
-            path: '/pippin'
+            path: 'pippin'
             type: :server
             metrics:
               - type: :traffic
@@ -237,7 +239,7 @@ data:
                 category: :hardware
                 files: 'pippin.uptime.rrd'
           - name: 'Samwise'
-            path: '/samwise'
+            path: 'samwise'
             type: :server
             metrics:
               - type: :cpu
@@ -257,7 +259,7 @@ data:
                 category: :hardware
                 files: 'samwise.uptime.rrd'
           - name: 'Sauron'
-            path: '/sauron'
+            path: 'sauron'
             type: :switch
             metrics:
               - title: 'Port Traffic 1 (%{suffix})'
@@ -363,7 +365,7 @@ data:
       - name: 'ore02.obscured.se'
         nodes:
           - name: 'Celeborn'
-            path:  '/celeborn'
+            path:  'celeborn'
             type: :router
             metrics:
               - type: :cpu
@@ -422,7 +424,7 @@ data:
                 name: 'celeborn.vlan.load'
                 files: ['celeborn.iface_17.rrd','celeborn.iface_18.rrd','celeborn.iface_19.rrd']
           - name: 'Legolas'
-            path:  '/legolas'
+            path:  'legolas'
             type: :switch
             metrics:
               - title: 'Port 21 (T:21) Traffic (%{suffix})'
@@ -469,8 +471,8 @@ data:
                 aggregated: true
                 name: '10.0.0.2_vlan.load.aggregated'
                 files: ['10.0.0.2_1000.rrd','10.0.0.2_2000.rrd','10.0.0.2_3000.rrd','10.0.0.2_3001.rrd']
-          - name: 'Vm01'
-            path: '/vm01'
+          - name: 'VM01'
+            path: 'vm01'
             type: :server
             metrics:
               - type: :cpu
@@ -489,8 +491,8 @@ data:
               - type: :uptime
                 category: :hardware
                 files: 'vm01.uptime.rrd'
-          - name: 'Vm02'
-            path: '/vm02'
+          - name: 'VM02'
+            path: 'vm02'
             type: :server
             metrics:
               - type: :cpu
@@ -509,8 +511,8 @@ data:
               - type: :uptime
                 category: :hardware
                 files: 'vm02.uptime.rrd'
-          - name: 'Vm03'
-            path: '/vm03'
+          - name: 'VM03'
+            path: 'vm03'
             type: :server
             metrics:
               - type: :cpu
@@ -529,8 +531,8 @@ data:
               - type: :uptime
                 category: :hardware
                 files: 'vm03.uptime.rrd'
-          - name: 'Vm04'
-            path: '/vm04'
+          - name: 'VM04'
+            path: 'vm04'
             type: :server
             metrics:
               - type: :cpu
@@ -549,8 +551,8 @@ data:
               - type: :uptime
                 category: :hardware
                 files: 'vm04.uptime.rrd'
-          - name: 'Vm05'
-            path: '/vm05'
+          - name: 'VM05'
+            path: 'vm05'
             type: :server
             metrics:
               - type: :cpu
@@ -569,8 +571,8 @@ data:
               - type: :uptime
                 category: :hardware
                 files: 'vm05.uptime.rrd'
-          - name: 'Nas01'
-            path: '/nas01'
+          - name: 'NAS01'
+            path: 'nas01'
             type: :server
             metrics:
               - type: :cpu
@@ -592,7 +594,7 @@ data:
       - name: 'ore03.obscured.se'
         nodes:
           - name: 'Eomer'
-            path: '/eomer'
+            path: 'eomer'
             type: :server
             metrics:
               - type: :disk
@@ -614,7 +616,7 @@ data:
                 category: :hardware
                 files: 'eomer.uptime.rrd'
           - name: 'Galadriel'
-            path: '/galadriel'
+            path: 'galadriel'
             type: :server
             metrics:
               - type: :disk

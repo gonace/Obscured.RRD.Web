@@ -2,13 +2,15 @@ module Obscured
   module Entities
     class Node
       attr_accessor :name
-      attr_accessor :type
+      attr_accessor :path
       attr_accessor :group
+      attr_accessor :type
 
-      def initialize(name, type, group)
+      def initialize(name, path, group, type)
         @name = name
-        @type = type
+        @path = path
         @group = group
+        @type = type
       end
     end
   end

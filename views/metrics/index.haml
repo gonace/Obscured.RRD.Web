@@ -1,6 +1,6 @@
 #content.bs-docs-header{:tabindex => '-1', :class => 'willie-angry'}
   .container
-    %h1= "Metrics for #{name_server.capitalize}"
+    %h1= "Metrics for #{server_name.capitalize}"
     %p An overview of the available graphs for the current selected node, the job type, state, to see more detailed views just click on the graphs.
 
 .container.bs-docs-container
@@ -20,8 +20,8 @@
             .panel-heading
               = graph.name
             .panel-body
-              %a{:href => "/metric/#{name_group}/#{name_server}/#{graph.id}" }
-                %img{:src => "/graphs/#{name_server}/#{graph.image}", :alt => graph.name, width: '100%'}
+              %a{:href => "/metric/#{graph.node.group}/#{graph.node.path}/#{graph.id}" }
+                %img{:src => "/graphs/#{graph.node.path}/#{graph.image}", :alt => graph.name, width: '100%'}
 
     .col-md-2{:role => 'complementary'}
       %nav.bs-docs-sidebar.hidden-print.hidden-xs.hidden-sm.affix-top

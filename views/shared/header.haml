@@ -17,4 +17,4 @@
             %ul.dropdown-menu
               - group['nodes'].each do |source|
                 %li
-                  %a{:href => "/metrics/#{group['name']}/#{source['name'].to_s.downcase}"}= source['name']
+                  %a{:href => "/metrics/#{group['name']}/#{source['path']}"}= source['name']
