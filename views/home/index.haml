@@ -4,15 +4,15 @@
     %p An overview of the selected background job, the job type, state, and ways to correct eventual errors.
 
 .container.bs-docs-container
-  .row
-    .col-md-12
-      - if flash[:metrics_error]
+  - if flash[:metrics_error]
+    .row
+      .col-md-12
         .alert.alert-danger
           %strong Oh snap!
           = flash[:metrics_error]
 
   .row
-    .col-md-10
+    .col-md-10{:role => 'main'}
       - metrics.each do |category|
         %h1.page-header{ :id => category.name}= category.name
         - category.graphs.each do |graph|
@@ -24,7 +24,7 @@
                 %img{:src => "/graphs/#{graph.node.name}/#{graph.image}", :alt => graph.name, width: '100%'}
 
     .col-md-2{:role => 'complementary'}
-      %nav.bs-docs-sidebar.hidden-print.hidden-xs.hidden-sm.affix
+      %nav.bs-docs-sidebar.hidden-print.hidden-xs.hidden-sm.affix-top
         %ul.nav.bs-docs-sidenav
           - metrics.each do |category|
             %li
