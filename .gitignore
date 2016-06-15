@@ -11,3 +11,5 @@ doc/*
 .DS_Store
 vendor/
 data/
+bin/
+tmp/
