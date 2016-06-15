@@ -15,12 +15,17 @@ class MetricController < BaseController
     metric_name = ''
 
     begin
+      offsets = [Obscured.c('graph.offsets.daily'), Obscured.c('graph.offsets.weekly'), Obscured.c('graph.offsets.monthly'), Obscured.c('graph.offsets.yearly'), Obscured.c('graph.offsets.triennium')]
       graph_root = settings.root + '/../public/graphs'
       group = Obscured.c('data.sources.groups').find{|a| a['name'] == server_group}
+
+      if (group.blank? or group.empty?) or (node.blank? or group.empty?)
+        redirect ('/error/404')
+      end
+
       node = group['nodes'].find {|n| n['path'] == server_path}
       metric = node['metrics'].find {|n| n['files'] == file_metric}
       metric_type = Obscured.c('metrics.types').select {|e| e['type'] == metric['type']}.first
-      offsets = [Obscured.c('graph.offsets.daily'), Obscured.c('graph.offsets.weekly'), Obscured.c('graph.offsets.monthly'), Obscured.c('graph.offsets.yearly'), Obscured.c('graph.offsets.triennium')]
       server_name = node['name']
       metric_name = metric['type'].to_s
 
