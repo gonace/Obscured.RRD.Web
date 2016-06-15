@@ -220,6 +220,7 @@ data:
               - type: :disk
                 category: :hardware
                 max: 43980465111040
+                highlighted: true
                 files: 'pippin.disk.rrd'
               - type: :cpu
                 category: :hardware
@@ -514,6 +515,7 @@ data:
               - type: :disk
                 category: :hardware
                 max: 43980465111040
+                highlighted: true
                 files: 'eomer.disk.rrd'
               - type: :traffic
                 category: :network
@@ -535,6 +537,7 @@ data:
               - type: :disk
                 category: :hardware
                 max: 43980465111040
+                highlighted: true
                 files: 'galadriel.disk.rrd'
               - type: :traffic
                 category: :network

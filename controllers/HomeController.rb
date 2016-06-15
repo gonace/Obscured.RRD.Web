@@ -7,12 +7,6 @@ class HomeController < BaseController
     begin
       groups = Obscured.c('data.sources.groups')
 
-
-
-      puts '#################'
-      puts '###   DEBUG   ###'
-      puts '#################'
-
       metrics = []
       groups.each do |group|
         group['nodes'].each do |node|
@@ -26,7 +20,6 @@ class HomeController < BaseController
               metric_type = Obscured.c('metrics.types').select {|e| e['type'] == metric['type']}.first
               metric_title = (!metric['title'].blank?) ? ("#{node['name']}: " + metric['title'].to_s % { :suffix => metric_type['suffix'] }) : ("#{node['name']}: " + metric_type['title'].to_s % { :suffix => metric_type['suffix'] })
 
-              pp node
               index_category = metrics.find_index {|m| m.name == metric['category'].to_s.capitalize}
               if index_category >= 0
                 metrics[index_category].graphs.push Obscured::Entities::Graph.new(metric_file, metric_title, metric_image, metric_type, Obscured::Entities::Node.new(node['name'].downcase, node['type'].to_s, group['name']))
@@ -35,10 +28,6 @@ class HomeController < BaseController
           end
         end
       end
-      puts '#################'
-      pp metrics
-      puts '#################'
-
     rescue ArgumentError => e
       flash[:metrics_error] = "I'm sad to say that he found an error: #{e.message}"
     end
