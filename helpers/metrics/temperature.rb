@@ -36,7 +36,7 @@ module Obscured
           RRD.graph("#{path_graph}#{graph_name}",
                     :start => Time.now - eval(graph_offset['offset']).to_i, :end => Time.now, :step => eval(graph_offset['step']).to_i,
                     :height => Obscured.c('graph.height'), :width => Obscured.c('graph.width'),
-                    :color => %w(FONT#000000 BACK#FFFFFF), :border => '0', :font => ['DEFAULT:8:Courier', 'TITLE:10:', 'AXIS:10:' 'WATERMARK:8:'], 'vertical-label' => graph_title, :watermark => Obscured.c('graph.watermark')) do
+                    :color => %w(FONT#000000 BACK#FFFFFF), :border => '0', :font => ['DEFAULT:8:Courier', 'LEGEND:9:', 'TITLE:10:', 'AXIS:10:' 'WATERMARK:8:'], 'vertical-label' => graph_title, :watermark => Obscured.c('graph.watermark')) do
 
             for_rrd_data 'in', :ds0 => :average, :from => path_rrd
             for_rrd_data 'min', :ds0 => :max, :from => path_rrd
@@ -55,12 +55,12 @@ module Obscured
             draw_area :data => 'uin', :color => '#00cc00', :label => 'Intake\t'
             print_value 'uin:LAST', :format => 'Cur\: %9.0lf %s℃'
             print_value 'uin:AVERAGE', :format => 'Avg\: %9.0lf %s℃'
-            print_value 'umin:MAX', :format => 'Max\: %9.0lf %s℃'
+            print_value 'umin:MAX', :format => 'Max\: %9.0lf %s℃\n'
 
             draw_line :data => 'uout', :color => '#0000ff', :label => 'Exhaust\t'
             print_value 'uout:LAST', :format => 'Cur\: %9.0lf %s℃'
             print_value 'uout:AVERAGE', :format => 'Avg\: %9.0lf %s℃'
-            print_value 'umout:MAX', :format => 'Max\: %9.0lf %s℃'
+            print_value 'umout:MAX', :format => 'Max\: %9.0lf %s℃\n'
           end
         end
       end

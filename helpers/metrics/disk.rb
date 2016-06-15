@@ -36,7 +36,7 @@ module Obscured
           RRD.graph("#{path_graph}#{graph_name}",
                     :start => Time.now - eval(graph_offset['offset']).to_i, :end => Time.now, :step => eval(graph_offset['step']).to_i,
                     :height => Obscured.c('graph.height'), :width => Obscured.c('graph.width'),
-                    :color => %w(FONT#000000 BACK#FFFFFF), :border => '0', :font => ['DEFAULT:8:Courier', 'TITLE:10:', 'AXIS:10:' 'WATERMARK:8:'], 'vertical-label' => graph_title, :watermark => Obscured.c('graph.watermark')) do
+                    :color => %w(FONT#000000 BACK#FFFFFF), :border => '0', :font => ['DEFAULT:8:Courier', 'LEGEND:9:', 'TITLE:10:', 'AXIS:10:' 'WATERMARK:8:'], 'vertical-label' => graph_title, :watermark => Obscured.c('graph.watermark')) do
 
             for_rrd_data 'in', :ds0 => :average, :from => path_rrd
             for_rrd_data 'min', :ds0 => :max, :from => path_rrd
@@ -51,12 +51,12 @@ module Obscured
             draw_area :data => 'in', :color => '#00cc00', :label => 'Total\t'
             print_value 'in:LAST', :format => 'Cur\: %8.3lf %sB'
             print_value 'in:AVERAGE', :format => 'Avg\: %8.3lf %sB'
-            print_value 'min:MAX', :format => 'Max\: %8.3lf %sB'
+            print_value 'min:MAX', :format => 'Max\: %8.3lf %sB\n'
 
             draw_line :data => 'out', :color => '#0000ff', :label => 'Used\t'
             print_value 'out:LAST', :format => 'Cur\: %8.3lf %sB'
             print_value 'out:AVERAGE', :format => 'Avg\: %8.3lf %sB'
-            print_value 'mout:MAX', :format => 'Max\: %8.3lf %sB'
+            print_value 'mout:MAX', :format => 'Max\: %8.3lf %sB\n'
           end
         end
       end
