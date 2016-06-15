@@ -9,11 +9,20 @@ require 'haml'
 require 'json'
 require 'pp'
 require 'rack/cache'
+require 'recursive-open-struct'
+require 'rrd'
 require 'sinatra/config_file'
 require 'sinatra/cookies'
 require 'sinatra/flash'
 require 'sinatra/json'
 require 'sinatra/partial'
+
+
+###
+# Entities
+###
+require 'entities/category'
+require 'entities/graph'
 
 
 ###
@@ -23,6 +32,7 @@ require 'controllers/BaseController'
 require 'controllers/ErrorsController'
 require 'controllers/HomeController'
 require 'controllers/MetricController'
+require 'controllers/MetricsController'
 
 
 ###
@@ -30,3 +40,10 @@ require 'controllers/MetricController'
 ###
 require 'helpers/config'
 require 'helpers/logger'
+require 'helpers/metric'
+require 'helpers/metrics/cpu'
+require 'helpers/metrics/disk'
+require 'helpers/metrics/memory'
+require 'helpers/metrics/temperature'
+require 'helpers/metrics/traffic'
+require 'helpers/metrics/uptime'

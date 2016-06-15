@@ -7,7 +7,7 @@ class BaseController < Sinatra::Base
   set :dump_errors, true
   set :raise_errors, true
   if :environment == :local or :development?
-    set :show_exceptions, false
+    set :show_exceptions, true
   else
     set :show_exceptions, false
   end

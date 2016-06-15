@@ -4,8 +4,10 @@ pkg/*
 doc/*
 .idea/*
 /public/doc/*
+/public/data/*
+/public/graphs/*
 .yardoc/*
 *log
 .DS_Store
 vendor/
-!apps/external_api/public/api_documentation/vendor
+data/

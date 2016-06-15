@@ -9,13 +9,12 @@
       %a.navbar-brand{:href => '/'} Obscured.RRD
     %nav#bs-navbar.collapse.navbar-collapse
       %ul.nav.navbar-nav
-        %li
-          %a.brand{:href => '/'} Overview
-        %li
-          %a.brand{:href => '/accounts'} Accounts
-        %li
-          %a.brand{:href => '/events'} Events
-        %li
-          %a.brand{:href => '/jobs'} Jobs
-        %li
-          %a.brand{:href => '/rules'} Rules
+        - Obscured.c('data.sources.groups').each do |group|
+          %li.dropdown
+            %a.dropdown-toggle{'aria-expanded' => 'false', 'aria-haspopup' => 'true', 'data-toggle' => 'dropdown', :href => '#', :role => 'button'}
+              = group['name']
+              %span.caret
+            %ul.dropdown-menu
+              - group['nodes'].each do |source|
+                %li
+                  %a{:href => "/metrics/#{group['name']}/#{source['name'].to_s.downcase}"}= source['name']

@@ -1,0 +1,549 @@
+graph:
+  height: 450
+  width: 900
+  watermark: 'Copyright Obscured (http://www.obscured.se) Sweden.'
+  offsets:
+    hourly:
+      name: 'hourly'
+      offset: 60.minutes
+      step: 1.minute
+    daily:
+      name: 'daily'
+      offset: 24.hours
+      step: 1.minute
+    weekly:
+      name: 'weekly'
+      offset: 12000.minutes
+      step: 5.minutes
+    monthly:
+      name: 'monthly'
+      offset: 800.hours
+      step: 1.hour
+    yearly:
+      name: 'yearly'
+      offset: 400.days
+      step: 1.hour
+    biennium:
+      name: 'biennium'
+      offset: 800.days
+      step: 2.hours
+    triennium:
+      name: 'triennium'
+      offset: 1200.days
+      step: 5.hours
+    lustrum:
+      name: 'lustrum'
+      offset: 167.months
+      step: 12.hours
+    decade:
+      name: 'decade'
+      offset: 125.months
+      step: 24.hours
+rrd:
+  supported:
+    - :cpu
+    - :disk
+    - :memory
+    - :traffic
+    - :packages
+    - :temperature
+    - :uptime
+    - :load
+  conventions:
+   - convention: '%{name}.%{type}.rrd'
+   - convention: '%{name}_%{type}.rrd'
+metrics:
+  types:
+    - type: :cpu
+      title: 'CPU Utilization (%{suffix})'
+      suffix: '%'
+    - type: :disk
+      title: 'Disk Usage (%{suffix})'
+      suffix: 'B'
+    - type: :memory
+      title: 'Memory Usage (%{suffix})'
+      suffix: 'B'
+    - type: :traffic
+      title: 'Network Traffic (%{suffix})'
+      suffix: 'B/s'
+    - type: :packages
+      title: 'Packages (%{suffix})'
+      suffix: 'P/s'
+    - type: :temperature
+      title: 'Temperature (%{suffix})'
+      suffix: '°C'
+    - type: :uptime
+      title: 'Uptime (%{suffix})'
+      suffix: 'days'
+    - type: :load
+      title: 'Load (%{suffix})'
+      suffix: '%'
+data:
+  root: '/data'
+  sources:
+    groups:
+      - name: 'ore01.obscured.se'
+        nodes:
+          - name: 'Boromir'
+            path: '/boromir'
+            type: :switch
+            metrics:
+              - title: 'Port 1 (0:1) Traffic (%{suffix})'
+                category: :network
+                type: :traffic
+                files: "boromir.iface_10102.rrd"
+              - title: 'Port 2 (0:2) Traffic (%{suffix})'
+                category: :network
+                type: :traffic
+                files: "boromir.iface_10103.rrd"
+              - title: 'Port 3 (0:3) Traffic (%{suffix})'
+                category: :network
+                type: :traffic
+                files: "boromir.iface_10104.rrd"
+              - title: 'Port 4 (0:4) Traffic (%{suffix})'
+                category: :network
+                type: :traffic
+                files: "boromir.iface_10105.rrd"
+              - title: 'Port 5 (0:5) Traffic (%{suffix})'
+                category: :network
+                type: :traffic
+                files: "boromir.iface_10106.rrd"
+              - title: 'Port 6 (0:6) Traffic (%{suffix})'
+                category: :network
+                type: :traffic
+                files: "boromir.iface_10107.rrd"
+              - title: 'Port 7 (0:7) Traffic (%{suffix})'
+                category: :network
+                type: :traffic
+                files: "boromir.iface_10108.rrd"
+              - title: 'Port 8 (0:8) Traffic (%{suffix})'
+                category: :network
+                type: :traffic
+                files: "boromir.iface_10101.rrd"
+              - title: 'VLAN 1 Traffic - Internet (%{suffix})'
+                type: :traffic
+                category: :vlan
+                files: 'boromir.vlan.1.rrd'
+              - title: 'VLAN 845 Traffic - DitigalTV (%{suffix})'
+                type: :traffic
+                category: :vlan
+                files: 'boromir.vlan.845.rrd'
+              - title: 'VLAN 2000 Traffic - Network Services (%{suffix})'
+                type: :traffic
+                category: :vlan
+                files: 'boromir.vlan.2000.rrd'
+              - title: 'VLAN 3000 Traffic - Workstations (%{suffix})'
+                type: :traffic
+                category: :vlan
+                files: 'boromir.vlan.3000.rrd'
+              - title: 'VLAN 3001 Traffic - WiFi (%{suffix})'
+                type: :traffic
+                category: :vlan
+                files: 'boromir.vlan.3001.rrd'
+              - title: 'VLAN 4000 Traffic - Servers (%{suffix})'
+                type: :traffic
+                category: :vlan
+                files: 'boromir.vlan.4000.rrd'
+              - title: 'VLAN 4001 Traffic - Virtual Machines (%{suffix})'
+                type: :traffic
+                category: :vlan
+                files: 'boromir.vlan.4001.rrd'
+          - name: 'Core'
+            path: '/core'
+            type: :switch
+            metrics:
+              - title: 'Aggregated traffic (%{suffix})'
+                category: :network
+                type: :traffic
+                files: 'aggregate.traffic.rrd'
+              - title: 'Core traffic (%{suffix})'
+                category: :network
+                type: :traffic
+                files: 'core.traffic.rrd'
+          - name: 'Gimli'
+            path: '/gimli'
+            type: :router
+            metrics:
+              - type: :temperature
+                category: :hardware
+                files: 'gimli.temperature.rrd'
+              - type: :cpu
+                category: :hardware
+                files: 'gimli.cpu.rrd'
+              - type: :memory
+                category: :hardware
+                max: 536870912
+                files: 'gimli.mem.rrd'
+              - title: 'Port 1 (0:0)'
+                type: :traffic
+                category: :network
+                files: 'gimli.iface.1.rrd'
+              - title: 'Port 2 (0:1)'
+                type: :traffic
+                category: :network
+                files: 'gimli.iface.2.rrd'
+              - title: 'VLAN 2000 Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'gimli.iface.5.rrd'
+              - title: 'VLAN 2001 Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'gimli.iface.6.rrd'
+              - title: 'VLAN 2002 Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'gimli.iface.7.rrd'
+              - title: 'VLAN 3001 Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'gimli.iface.8.rrd'
+              - title: 'VLAN 4001 Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'gimli.iface.9.rrd'
+              - title: 'VLAN Load (%{suffix})'
+                type: :load
+                category: :network
+                aggregated: true
+                name: 'gimli.vlan.load'
+                files: ['gimli.iface.5.rrd','gimli.iface.6.rrd','gimli.iface.7.rrd','gimli.iface.8.rrd','gimli.iface.9.rrd']
+          - name: 'Pippin'
+            path: '/pippin'
+            type: :server
+            metrics:
+              - type: :traffic
+                category: :network
+                files: 'pippin.inet.rrd'
+              - type: :disk
+                category: :hardware
+                max: 43980465111040
+                files: 'pippin.disk.rrd'
+              - type: :cpu
+                category: :hardware
+                files: 'pippin.totalcpu.rrd'
+              - type: :memory
+                category: :hardware
+                max: 8589934592
+                files: 'pippin.mem.rrd'
+              - title: 'Disk Idle Time (%{suffix})'
+                type: :load
+                category: :hardware
+                files: 'pippin.disk.idle.rrd'
+              - type: :uptime
+                category: :hardware
+                files: 'pippin.uptime.rrd'
+          - name: 'Samwise'
+            path: '/samwise'
+            type: :server
+            metrics:
+              - type: :cpu
+                category: :hardware
+                files: 'samwise.cpu.rrd'
+              - type: :traffic
+                category: :network
+                files: 'samwise.inet.rrd'
+              - type: :memory
+                category: :hardware
+                files: 'samwise.mem.rrd'
+              - type: :traffic
+                category: :network
+                files: 'samwise.trunk.rrd'
+              - type: :uptime
+                category: :hardware
+                files: 'samwise.uptime.rrd'
+          - name: 'Sauron'
+            path: '/sauron'
+            type: :switch
+            metrics:
+              - title: 'Port Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: ['sauron.iface.10101.rrd','sauron.iface.10102.rrd','sauron.iface.10103.rrd','sauron.iface.10104.rrd','sauron.iface.10105.rrd','sauron.iface.10106.rrd','sauron.iface.10107.rrd','sauron.iface.10108.rrd','sauron.iface.10109.rrd','sauron.iface.10110.rrd','sauron.iface.10111.rrd','sauron.iface.10112.rrd','sauron.iface.10113.rrd','sauron.iface.10114.rrd','sauron.iface.10115.rrd','sauron.iface.10116.rrd','sauron.iface.10117.rrd','sauron.iface.10118.rrd','sauron.iface.10119.rrd','sauron.iface.10120.rrd']
+              - title: 'Port 21 (T:21) Traffic (%{suffix})'
+                type: :traffic
+                category: :trunk
+                files: 'sauron.iface.10121.rrd'
+              - title: 'Port 22 (T:22) Traffic (%{suffix})'
+                type: :traffic
+                category: :trunk
+                files: 'sauron.iface.10122.rrd'
+              - title: 'Port 23 (T:23) Traffic (%{suffix})'
+                type: :traffic
+                category: :trunk
+                files: 'sauron.iface.10123.rrd'
+              - title: 'Port 24 (T:24) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'sauron.iface.10124.rrd'
+      - name: 'ore02.obscured.se'
+        nodes:
+          - name: 'Celeborn'
+            path:  '/celeborn'
+            type: :router
+            metrics:
+              - type: :cpu
+                category: :hardware
+                files: 'celeborn.cpu.rrd'
+              - type: :memory
+                category: :hardware
+                max: 268435456
+                files: 'celeborn.mem.rrd'
+              - title: 'Port 1 (T:1) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'celeborn.iface_1.rrd'
+              - title: 'Port 2 (T:2) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'celeborn.iface_2.rrd'
+              - title: 'VLAN 2000 Traffic (%{suffix})'
+                type: :traffic
+                category: :vlan
+                files: 'celeborn.iface_17.rrd'
+              - title: 'VLAN 3000 Traffic (%{suffix})'
+                type: :traffic
+                category: :vlan
+                files: 'celeborn.iface_18.rrd'
+              - title: 'VLAN 3001 Traffic (%{suffix})'
+                type: :traffic
+                category: :vlan
+                files: 'celeborn.iface_19.rrd'
+              - title: 'VLAN 4000 Traffic (%{suffix})'
+                type: :traffic
+                category: :vlan
+                files: 'celeborn.iface_20.rrd'
+              - title: 'VLAN 4001 Traffic (%{suffix})'
+                type: :traffic
+                category: :vlan
+                files: 'celeborn.iface_21.rrd'
+              - title: 'VLAN 4002 Traffic (%{suffix})'
+                type: :traffic
+                category: :vlan
+                files: 'celeborn.iface_22.rrd'
+              - title: 'VLAN 1001 Traffic (%{suffix})'
+                type: :traffic
+                category: :vlan
+                files: 'celeborn.iface_23.rrd'
+              - title: 'VLAN Traffic (%{suffix})'
+                type: :traffic
+                category: :vlan
+                aggregated: true
+                files: ['celeborn.iface_17.rrd','celeborn.iface_18.rrd','celeborn.iface_19.rrd']
+              - title: 'VLAN Load (%{suffix})'
+                type: :load
+                category: :vlan
+                aggregated: true
+                files: ['celeborn.iface_17.rrd','celeborn.iface_18.rrd','celeborn.iface_19.rrd']
+          - name: 'Legolas'
+            path:  '/legolas'
+            type: :switch
+            metrics:
+              - title: 'Port 21 (T:21) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: '10.0.0.2_10121.rrd'
+              - title: 'Port 22 (T:22) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: '10.0.0.2_10122.rrd'
+              - title: 'Port 23 (T:23) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: '10.0.0.2_10123.rrd'
+              - title: 'Port 24 (T:24) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: '10.0.0.2_10124.rrd'
+              - title: 'VLAN 1000 Traffic (%{suffix})'
+                type: :traffic
+                category: :vlan
+                files: '10.0.0.2_1000.rrd'
+              - title: 'VLAN 2000 Traffic (%{suffix})'
+                type: :traffic
+                category: :vlan
+                files: '10.0.0.2_2000.rrd'
+              - title: 'VLAN 3000 Traffic (%{suffix})'
+                type: :traffic
+                category: :vlan
+                files: '10.0.0.2_3000.rrd'
+              - title: 'VLAN 3001 Traffic (%{suffix})'
+                type: :traffic
+                category: :vlan
+                files: '10.0.0.2_3001.rrd'
+              - title: 'VLAN Traffic (%{suffix})'
+                type: :traffic
+                category: :vlan
+                aggregated: true
+                name: '10.0.0.2_vlan.traffic.aggregated'
+                files: ['10.0.0.2_1000.rrd','10.0.0.2_2000.rrd','10.0.0.2_3000.rrd','10.0.0.2_3001.rrd']
+              - title: 'VLAN Load (%{suffix})'
+                type: :load
+                category: :vlan
+                aggregated: true
+                name: '10.0.0.2_vlan.load.aggregated'
+                files: ['10.0.0.2_1000.rrd','10.0.0.2_2000.rrd','10.0.0.2_3000.rrd','10.0.0.2_3001.rrd']
+          - name: 'Vm01'
+            path: '/vm01'
+            type: :server
+            metrics:
+              - type: :cpu
+                category: :hardware
+                files: 'vm01.cpu.rrd'
+              - type: :traffic
+                category: :network
+                files: 'vm01.inet.rrd'
+              - type: :memory
+                category: :hardware
+                max: 34359738368
+                files: 'vm01.mem.rrd'
+              - type: :traffic
+                category: :network
+                files: 'vm01.trunk.rrd'
+              - type: :uptime
+                category: :hardware
+                files: 'vm01.uptime.rrd'
+          - name: 'Vm02'
+            path: '/vm02'
+            type: :server
+            metrics:
+              - type: :cpu
+                category: :hardware
+                files: 'vm02.cpu.rrd'
+              - type: :traffic
+                category: :network
+                files: 'vm02.inet.rrd'
+              - type: :memory
+                category: :hardware
+                max: 34359738368
+                files: 'vm02.mem.rrd'
+              - type: :traffic
+                category: :network
+                files: 'vm02.trunk.rrd'
+              - type: :uptime
+                category: :hardware
+                files: 'vm02.uptime.rrd'
+          - name: 'Vm03'
+            path: '/vm03'
+            type: :server
+            metrics:
+              - type: :cpu
+                category: :hardware
+                files: 'vm03.cpu.rrd'
+              - type: :traffic
+                category: :network
+                files: 'vm03.inet.rrd'
+              - type: :memory
+                category: :hardware
+                max: 34359738368
+                files: 'vm03.mem.rrd'
+              - type: :traffic
+                category: :network
+                files: 'vm03.trunk.rrd'
+              - type: :uptime
+                category: :hardware
+                files: 'vm03.uptime.rrd'
+          - name: 'Vm04'
+            path: '/vm04'
+            type: :server
+            metrics:
+              - type: :cpu
+                category: :hardware
+                files: 'vm04.cpu.rrd'
+              - type: :traffic
+                category: :network
+                files: 'vm04.inet.rrd'
+              - type: :memory
+                category: :hardware
+                max: 34359738368
+                files: 'vm04.mem.rrd'
+              - type: :traffic
+                category: :network
+                files: 'vm04.trunk.rrd'
+              - type: :uptime
+                category: :hardware
+                files: 'vm04.uptime.rrd'
+          - name: 'Vm05'
+            path: '/vm05'
+            type: :server
+            metrics:
+              - type: :cpu
+                category: :hardware
+                files: 'vm05.cpu.rrd'
+              - type: :traffic
+                category: :network
+                files: 'vm05.inet.rrd'
+              - type: :memory
+                category: :hardware
+                max: 412316860416
+                files: 'vm05.mem.rrd'
+              - type: :traffic
+                category: :network
+                files: 'vm05.trunk.rrd'
+              - type: :uptime
+                category: :hardware
+                files: 'vm05.uptime.rrd'
+          - name: 'Nas01'
+            path: '/nas01'
+            type: :server
+            metrics:
+              - type: :cpu
+                category: :hardware
+                files: 'nas01.cpu.rrd'
+              - type: :traffic
+                category: :network
+                files: 'nas01.inet.rrd'
+              - type: :memory
+                category: :hardware
+                max: 34359738368
+                files: 'nas01.mem.rrd'
+              - type: :traffic
+                category: :network
+                files: 'nas01.trunk.rrd'
+              - type: :uptime
+                category: :hardware
+                files: 'nas01.uptime.rrd'
+      - name: 'ore03.obscured.se'
+        nodes:
+          - name: 'Eomer'
+            path: '/eomer'
+            type: :server
+            metrics:
+              - type: :disk
+                category: :hardware
+                max: 43980465111040
+                files: 'eomer.disk.rrd'
+              - type: :traffic
+                category: :network
+                files: 'eomer.inet.rrd'
+              - type: :memory
+                category: :hardware
+                max: 8589934592
+                files: 'eomer.mem.rrd'
+              - type: :cpu
+                category: :hardware
+                files: 'eomer.totalcpu.rrd'
+              - type: :uptime
+                category: :hardware
+                files: 'eomer.uptime.rrd'
+          - name: 'Galadriel'
+            path: '/galadriel'
+            type: :server
+            metrics:
+              - type: :disk
+                category: :hardware
+                max: 43980465111040
+                files: 'galadriel.disk.rrd'
+              - type: :traffic
+                category: :network
+                files: 'galadriel.inet.rrd'
+              - type: :memory
+                category: :hardware
+                max: 8589934592
+                files: 'galadriel.mem.rrd'
+              - type: :cpu
+                category: :hardware
+                files: 'galadriel.totalcpu.rrd'
+              - type: :uptime
+                category: :hardware
+                files: 'galadriel.uptime.rrd'

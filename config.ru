@@ -9,7 +9,7 @@ Obscured::Logger.info "Starting, env: #{ENV['RACK_ENV']}"
 
 # map the controllers to routes
 map('/') {
-  use Rack::Static, :urls => %w(/images /script /styles), :root => 'public'
+  use Rack::Static, :urls => %w(/graphs /images /script /styles), :root => 'public'
   run HomeController
 }
 
@@ -19,6 +19,10 @@ map('/error') {
 
 map('/metric') {
   run MetricController
+}
+
+map('/metrics') {
+  run MetricsController
 }
 
 
