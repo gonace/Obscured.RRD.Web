@@ -1,6 +1,6 @@
 #content.bs-docs-header{:tabindex => '-1', :class => 'willie-angry'}
   .container
-    %h1= "#{name_metric.capitalize} for #{name_server.capitalize}"
+    %h1= "#{metric_name.capitalize} for #{server_name.capitalize}"
     %p An overview of the available graphs for the defined time ranges.
 
 .container.bs-docs-container
@@ -20,7 +20,7 @@
             .panel-heading
               = graph.name
             .panel-body
-              %img{:src => "/graphs/#{name_server}/#{graph.image}", :alt => graph.name, width: '100%'}
+              %img{:src => "/graphs/#{graph.node.path}/#{graph.image}", :alt => graph.name, width: '100%'}
 
     .col-md-2{:role => 'complementary'}
       %nav.bs-docs-sidebar.hidden-print.hidden-xs.hidden-sm.affix-top
