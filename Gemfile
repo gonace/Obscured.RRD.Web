@@ -15,3 +15,5 @@ gem 'sinatra-param', '~> 1.4.0'
 gem 'sinatra-partial', '~> 0.4.0'
 gem 'sinatra-json', '~> 0.1.0'
 gem 'sinatra-contrib', '~> 1.4.7'
+
+gem 'unicorn'
