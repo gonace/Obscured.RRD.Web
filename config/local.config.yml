@@ -186,27 +186,27 @@ data:
                 files: 'gimli.iface.2.rrd'
               - title: 'VLAN 2000 Traffic (%{suffix})'
                 type: :traffic
-                category: :network
+                category: :vlan
                 files: 'gimli.iface.5.rrd'
               - title: 'VLAN 2001 Traffic (%{suffix})'
                 type: :traffic
-                category: :network
+                category: :vlan
                 files: 'gimli.iface.6.rrd'
               - title: 'VLAN 2002 Traffic (%{suffix})'
                 type: :traffic
-                category: :network
+                category: :vlan
                 files: 'gimli.iface.7.rrd'
               - title: 'VLAN 3001 Traffic (%{suffix})'
                 type: :traffic
-                category: :network
+                category: :vlan
                 files: 'gimli.iface.8.rrd'
               - title: 'VLAN 4001 Traffic (%{suffix})'
                 type: :traffic
-                category: :network
+                category: :vlan
                 files: 'gimli.iface.9.rrd'
               - title: 'VLAN Load (%{suffix})'
                 type: :load
-                category: :network
+                category: :vlan
                 aggregated: true
                 name: 'gimli.vlan.load'
                 files: ['gimli.iface.5.rrd','gimli.iface.6.rrd','gimli.iface.7.rrd','gimli.iface.8.rrd','gimli.iface.9.rrd']
@@ -248,6 +248,7 @@ data:
                 files: 'samwise.inet.rrd'
               - type: :memory
                 category: :hardware
+                max: 8589934592
                 files: 'samwise.mem.rrd'
               - type: :traffic
                 category: :network
@@ -259,10 +260,90 @@ data:
             path: '/sauron'
             type: :switch
             metrics:
-              - title: 'Port Traffic (%{suffix})'
+              - title: 'Port Traffic 1 (%{suffix})'
                 type: :traffic
                 category: :network
-                files: ['sauron.iface.10101.rrd','sauron.iface.10102.rrd','sauron.iface.10103.rrd','sauron.iface.10104.rrd','sauron.iface.10105.rrd','sauron.iface.10106.rrd','sauron.iface.10107.rrd','sauron.iface.10108.rrd','sauron.iface.10109.rrd','sauron.iface.10110.rrd','sauron.iface.10111.rrd','sauron.iface.10112.rrd','sauron.iface.10113.rrd','sauron.iface.10114.rrd','sauron.iface.10115.rrd','sauron.iface.10116.rrd','sauron.iface.10117.rrd','sauron.iface.10118.rrd','sauron.iface.10119.rrd','sauron.iface.10120.rrd']
+                files: 'sauron.iface.10101.rrd'
+              - title: 'Port Traffic 2 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'sauron.iface.10102.rrd'
+              - title: 'Port Traffic 3 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'sauron.iface.10103.rrd'
+              - title: 'Port Traffic 3 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'sauron.iface.10103.rrd'
+              - title: 'Port Traffic 4 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'sauron.iface.10104.rrd'
+              - title: 'Port Traffic 5 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'sauron.iface.10105.rrd'
+              - title: 'Port Traffic 6 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'sauron.iface.10106.rrd'
+              - title: 'Port Traffic 7 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'sauron.iface.10107.rrd'
+              - title: 'Port Traffic 8 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'sauron.iface.10108.rrd'
+              - title: 'Port Traffic 9 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'sauron.iface.10109.rrd'
+              - title: 'Port Traffic 10 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'sauron.iface.10110.rrd'
+              - title: 'Port Traffic 11 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'sauron.iface.10111.rrd'
+              - title: 'Port Traffic 12 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'sauron.iface.10112.rrd'
+              - title: 'Port Traffic 13 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'sauron.iface.10113.rrd'
+              - title: 'Port Traffic 14 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'sauron.iface.10114.rrd'
+              - title: 'Port Traffic 15 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'sauron.iface.10115.rrd'
+              - title: 'Port Traffic 16 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'sauron.iface.10116.rrd'
+              - title: 'Port Traffic 17 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'sauron.iface.10117.rrd'
+              - title: 'Port Traffic 18 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'sauron.iface.10118.rrd'
+              - title: 'Port Traffic 19 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'sauron.iface.10119.rrd'
+              - title: 'Port Traffic 20 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'sauron.iface.10120.rrd'
               - title: 'Port 21 (T:21) Traffic (%{suffix})'
                 type: :traffic
                 category: :trunk
@@ -277,7 +358,7 @@ data:
                 files: 'sauron.iface.10123.rrd'
               - title: 'Port 24 (T:24) Traffic (%{suffix})'
                 type: :traffic
-                category: :network
+                category: :trunk
                 files: 'sauron.iface.10124.rrd'
       - name: 'ore02.obscured.se'
         nodes:
