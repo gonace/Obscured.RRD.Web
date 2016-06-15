@@ -13,3 +13,4 @@ vendor/
 data/
 bin/
 tmp/
+logs/w
