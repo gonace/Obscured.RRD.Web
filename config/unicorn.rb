@@ -7,7 +7,11 @@ worker_processes 4
 working_directory app_path
 pid app_path + '/tmp/unicorn.pid'
 
-stderr_path app_path + '/logs/unicorn.log'
-stdout_path app_path + '/logs/unicorn.log'
+stderr_path app_path + '/logs/unicorn.stderr.log'
+stdout_path app_path + '/logs/unicorn.stdout.log'
 
 listen app_path + '/tmp/unicorn.sock', backlog: 64
+
+before_exec do |server|
+  ENV['BUNDLE_GEMFILE'] = "#{app_path}/Gemfile"
+end
