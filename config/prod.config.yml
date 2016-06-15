@@ -332,11 +332,13 @@ data:
                 type: :traffic
                 category: :vlan
                 aggregated: true
+                name: 'celeborn.vlan.aggregated'
                 files: ['celeborn.iface_17.rrd','celeborn.iface_18.rrd','celeborn.iface_19.rrd']
               - title: 'VLAN Load (%{suffix})'
                 type: :load
                 category: :vlan
                 aggregated: true
+                name: 'celeborn.vlan.load'
                 files: ['celeborn.iface_17.rrd','celeborn.iface_18.rrd','celeborn.iface_19.rrd']
           - name: 'Legolas'
             path:  '/legolas'
