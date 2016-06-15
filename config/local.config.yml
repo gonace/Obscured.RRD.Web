@@ -91,35 +91,35 @@ data:
               - title: 'Port 1 (0:1) Traffic (%{suffix})'
                 category: :network
                 type: :traffic
-                files: "boromir.iface_10102.rrd"
+                files: "boromir.iface_10101.rrd"
               - title: 'Port 2 (0:2) Traffic (%{suffix})'
                 category: :network
                 type: :traffic
-                files: "boromir.iface_10103.rrd"
+                files: "boromir.iface_10102.rrd"
               - title: 'Port 3 (0:3) Traffic (%{suffix})'
                 category: :network
                 type: :traffic
-                files: "boromir.iface_10104.rrd"
+                files: "boromir.iface_10103.rrd"
               - title: 'Port 4 (0:4) Traffic (%{suffix})'
                 category: :network
                 type: :traffic
-                files: "boromir.iface_10105.rrd"
+                files: "boromir.iface_10104.rrd"
               - title: 'Port 5 (0:5) Traffic (%{suffix})'
                 category: :network
                 type: :traffic
-                files: "boromir.iface_10106.rrd"
+                files: "boromir.iface_10105.rrd"
               - title: 'Port 6 (0:6) Traffic (%{suffix})'
                 category: :network
                 type: :traffic
-                files: "boromir.iface_10107.rrd"
+                files: "boromir.iface_10106.rrd"
               - title: 'Port 7 (0:7) Traffic (%{suffix})'
                 category: :network
                 type: :traffic
-                files: "boromir.iface_10108.rrd"
+                files: "boromir.iface_10107.rrd"
               - title: 'Port 8 (0:8) Traffic (%{suffix})'
                 category: :network
                 type: :traffic
-                files: "boromir.iface_10101.rrd"
+                files: "boromir.iface_10108.rrd"
               - title: 'VLAN 1 Traffic - Internet (%{suffix})'
                 type: :traffic
                 category: :vlan
