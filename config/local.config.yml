@@ -155,10 +155,12 @@ data:
               - title: 'Aggregated traffic (%{suffix})'
                 category: :network
                 type: :traffic
+                highlighted: true
                 files: 'aggregate.traffic.rrd'
               - title: 'Core traffic (%{suffix})'
                 category: :network
                 type: :traffic
+                highlighted: true
                 files: 'core.traffic.rrd'
           - name: 'Gimli'
             path: '/gimli'

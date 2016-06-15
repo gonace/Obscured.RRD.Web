@@ -23,6 +23,7 @@ require 'sinatra/partial'
 ###
 require 'entities/category'
 require 'entities/graph'
+require 'entities/node'
 
 
 ###
