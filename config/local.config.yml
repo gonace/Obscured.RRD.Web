@@ -59,13 +59,13 @@ metrics:
       suffix: '%'
     - type: :disk
       title: 'Disk Usage (%{suffix})'
-      suffix: 'B'
+      suffix: 'Bytes'
     - type: :memory
       title: 'Memory Usage (%{suffix})'
-      suffix: 'B'
+      suffix: 'Bytes'
     - type: :traffic
       title: 'Network Traffic (%{suffix})'
-      suffix: 'B/s'
+      suffix: 'Bytes/s'
     - type: :packages
       title: 'Packages (%{suffix})'
       suffix: 'P/s'
