@@ -13,9 +13,14 @@ class MetricsController < BaseController
 
     begin
       graph_root = settings.root + '/../public/graphs'
+      offsets = [Obscured.c('graph.offsets.weekly')]
       group = Obscured.c('data.sources.groups').find{|a| a['name'] == server_group}
       node = group['nodes'].find {|n| n['path'] == server_path}
-      offsets = [Obscured.c('graph.offsets.weekly')]
+
+      if (group.blank? or group.empty?) or (node.blank? or group.empty?)
+        redirect ('/error/404')
+      end
+
       server_name = node['name']
 
       if !Dir.exists? graph_root + "/#{server_path}"
