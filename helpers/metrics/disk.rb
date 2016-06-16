@@ -48,12 +48,15 @@ module Obscured
             using_calculated_data 'pout', :calc => 'out,UN,0,out,IF'
             using_calculated_data 'pmout', :calc => "mout,#{options[:metric]['max']},/,100,*,1,/"
 
-            draw_area :data => 'in', :color => '#00cc00', :label => 'Total\t'
+
+            draw_area :data => 'in', :color => '#63e563', :label => 'Total\t'
+            draw_line :data => 'in', :color => '#004d00', :label => ''
             print_value 'in:LAST', :format => 'Cur\: %8.3lf %sB'
             print_value 'in:AVERAGE', :format => 'Avg\: %8.3lf %sB'
             print_value 'min:MAX', :format => 'Max\: %8.3lf %sB\n'
 
-            draw_line :data => 'out', :color => '#0000ff', :label => 'Used\t'
+            draw_area :data => 'out', :color => '#ff7775', :label => 'Used\t'
+            draw_line :data => 'out', :color => '#800000', :label => ''
             print_value 'out:LAST', :format => 'Cur\: %8.3lf %sB'
             print_value 'out:AVERAGE', :format => 'Avg\: %8.3lf %sB'
             print_value 'mout:MAX', :format => 'Max\: %8.3lf %sB\n'

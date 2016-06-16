@@ -51,12 +51,19 @@ module Obscured
             using_calculated_data 'umout', :calc => 'mout,UN,0,mout,IF'
             using_calculated_data 'pmout', :calc => 'umout,100,/,100,*,1,/'
 
-            draw_area :data => 'uin', :color => '#d97b7a', :label => '5 Sec\t'
+
+            draw_area :data => 'min', :color => '#e50b00', :label => ''
+            draw_line :data => 'min', :color => '#7f0000', :label => ''
+            draw_area :data => 'uin', :color => '#ff584d', :label => '5 Sec\t'
+            draw_line :data => 'uin', :color => '#e50b00', :label => ''
             print_value 'uin:LAST', :format => 'Cur\: %6.0lf%s%%'
             print_value 'uin:AVERAGE', :format => 'Avg\: %6.0lf%s%%'
             print_value 'umin:MAX', :format => 'Max\: %6.0lf%s%%\n'
 
-            draw_line :data => 'uout', :color => '#cc1817', :label => '5 Min\t'
+            draw_area :data => 'mout', :color => '#e66900', :label => ''
+            draw_line :data => 'mout', :color => '#cc4f00', :label => ''
+            draw_area :data => 'uout', :color => '#ffB533', :label => '5 Min\t'
+            draw_line :data => 'uout', :color => '#ff8200', :label => ''
             print_value 'uout:LAST', :format => 'Cur\: %6.0lf%s%%'
             print_value 'uout:AVERAGE', :format => 'Avg\: %6.0lf%s%%'
             print_value 'umout:MAX', :format => 'Max\: %6.0lf%s%%\n'
