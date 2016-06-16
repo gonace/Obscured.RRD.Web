@@ -16,6 +16,8 @@
       - metrics.each do |category|
         %h1.page-header{ :id => category.name}= category.name
         - category.graphs.each do |graph|
+          .zero-clipboard
+            %span.btn-clipboard=":#{graph.type['type']}"
           .panel.panel-default{ :id => graph.image }
             .panel-heading
               = graph.name
