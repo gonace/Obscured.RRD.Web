@@ -16,7 +16,7 @@ class HomeController < BaseController
                 metrics.push Obscured::Entities::Category.new(metric['category'].to_s.capitalize)
               end
               metric_file = (!metric['aggregated'].blank? and metric['aggregated'] == true or metric['files'].kind_of?(Array)) ? "#{metric['name']}.rrd" : metric['files']
-              metric_image = (!metric['aggregated'].blank? and metric['aggregated'] == true or metric['files'].kind_of?(Array)) ? "#{metric['name']}-weekly.png" : (metric['files'].sub '.rrd', '-weekly.png')
+              metric_image = (!metric['aggregated'].blank? and metric['aggregated'] == true or metric['files'].kind_of?(Array)) ? "#{metric['name']}-#{Obscured.c('highlighted.offset')}.png" : (metric['files'].sub '.rrd', '-weekly.png')
               metric_type = Obscured.c('metrics.types').select {|e| e['type'] == metric['type']}.first
               metric_title = (!metric['title'].blank?) ? ("#{node['name']}: " + metric['title'].to_s % { :suffix => metric_type['suffix'] }) : ("#{node['name']}: " + metric_type['title'].to_s % { :suffix => metric_type['suffix'] })
 

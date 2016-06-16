@@ -47,22 +47,30 @@ module Obscured
             using_calculated_data 'pmin', :calc => 'min,125000000,/,100,*,1,/'
             using_calculated_data 'pout', :calc => 'out,125000000,/,100,*,1,/'
             using_calculated_data 'pmout', :calc => 'mout,125000000,/,100,*,1,/'
+            using_calculated_data 'nout', :calc => 'out,-1,*'
+            using_calculated_data 'nmout', :calc => 'mout,-1,*'
 
-            draw_area :data => 'in', :color => '#00cc00', :label => 'Incoming\t'
-            print_value 'in:LAST', :format => 'Cur\: %5.3lf %s'
-            print_value 'pin:LAST', :format => '(%2.2lf%%)'
-            print_value 'in:AVERAGE', :format => 'Avg\: %5.3lf %s'
-            print_value 'pin:AVERAGE', :format => '(%2.2lf%%)'
-            print_value 'min:MAX', :format => 'Max\: %5.3lf %s'
-            print_value 'pmin:MAX', :format => '(%2.2lf%%)\n'
-
-            draw_line :data => 'out', :color => '#0000ff', :label => 'Outgoing\t'
+            draw_area :data => 'nmout', :color => '#FFA64D', :label => ''
+            draw_line :data => 'nmout', :color => '#FF5900', :label => ''
+            draw_area :data => 'nout', :color => '#ffe000', :label => 'Outgoing\t'
+            draw_line :data => 'nout', :color => '#ccb300', :label => '', :width => 1
             print_value 'out:LAST', :format => 'Cur\: %5.3lf %s'
             print_value 'pout:LAST', :format => '(%2.2lf%%)'
             print_value 'out:AVERAGE', :format => 'Avg\: %5.3lf %s'
             print_value 'pout:AVERAGE', :format => '(%2.2lf%%)'
             print_value 'mout:MAX', :format => 'Max\: %5.3lf %s'
             print_value 'pmout:MAX', :format => '(%2.2lf%%)\n'
+
+            draw_area :data => 'min', :color => '#339933', :label => ''
+            draw_line :data => 'min', :color => '#003300', :label => ''
+            draw_area :data => 'in', :color => '#66cc66', :label => 'Incoming\t'
+            draw_line :data => 'in', :color => '#008300', :label => '', :width => 1
+            print_value 'in:LAST', :format => 'Cur\: %5.3lf %s'
+            print_value 'pin:LAST', :format => '(%2.2lf%%)'
+            print_value 'in:AVERAGE', :format => 'Avg\: %5.3lf %s'
+            print_value 'pin:AVERAGE', :format => '(%2.2lf%%)'
+            print_value 'min:MAX', :format => 'Max\: %5.3lf %s'
+            print_value 'pmin:MAX', :format => '(%2.2lf%%)\n'
           end
         end
       end

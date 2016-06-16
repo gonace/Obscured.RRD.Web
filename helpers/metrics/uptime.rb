@@ -52,7 +52,9 @@ module Obscured
             using_calculated_data 'umout', :calc => 'mout,UN,0,mout,IF'
             using_calculated_data 'pmout', :calc => 'umout,8000,/,100,*,1,/'
 
-            draw_area :data => 'in', :color => '#00cc00', :label => 'Uptime\t'
+
+            draw_area :data => 'in', :color => '#49b34d', :label => 'Uptime\t'
+            draw_line :data => 'in', :color => '#004d00', :label => ''
             print_value 'uin:LAST', :format => 'Cur\: %5.0lf%sd'
             print_value 'uin:AVERAGE', :format => 'Avg\: %5.0lf%sd'
             print_value 'umin:MAX', :format => 'Max\: %5.0lf%sd\n'

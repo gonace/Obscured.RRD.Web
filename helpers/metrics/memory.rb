@@ -51,13 +51,22 @@ module Obscured
             using_calculated_data 'pout', :calc => "uout,#{options[:metric]['max']},/,100,*,1,/"
             using_calculated_data 'umout', :calc => 'mout,UN,0,mout,IF'
             using_calculated_data 'pmout', :calc => "umout,#{options[:metric]['max']},/,100,*,1,/"
+            using_calculated_data 'nuout', :calc => 'uout,-1,*'
+            using_calculated_data 'numout', :calc => 'umout,-1,*'
 
-            draw_area :data => 'uin', :color => '#00cc00', :label => 'Available\t'
+
+            draw_area :data => 'umin', :color => '#339933', :label => ''
+            draw_line :data => 'umin', :color => '#003300', :label => ''
+            draw_area :data => 'uin', :color => '#99ff99', :label => 'Available\t'
+            draw_line :data => 'uin', :color => '#008000', :label => ''
             print_value 'uin:LAST', :format => 'Cur\: %5.0lf%sB'
             print_value 'uin:AVERAGE', :format => 'Avg\: %5.0lf%sB'
             print_value 'umin:MAX', :format => 'Max\: %5.0lf%sB\n'
 
-            draw_line :data => 'uout', :color => '#0000ff', :label => 'Committed\t'
+            draw_area :data => 'numout', :color => '#e50b00', :label => ''
+            draw_line :data => 'numout', :color => '#7f0000', :label => ''
+            draw_area :data => 'nuout', :color => '#ffb199', :label => 'Committed\t'
+            draw_line :data => 'nuout', :color => '#800000', :label => ''
             print_value 'uout:LAST', :format => 'Cur\: %5.0lf%sB'
             print_value 'uout:AVERAGE', :format => 'Avg\: %5.0lf%sB'
             print_value 'umout:MAX', :format => 'Max\: %5.0lf%sB\n'

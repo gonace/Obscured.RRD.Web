@@ -52,15 +52,23 @@ module Obscured
             using_calculated_data 'umout', :calc => 'mout,UN,0,mout,IF'
             using_calculated_data 'pmout', :calc => 'umout,100,/,100,*,1,/'
 
-            draw_area :data => 'uin', :color => '#00cc00', :label => 'Intake\t'
-            print_value 'uin:LAST', :format => 'Cur\: %9.0lf %s℃'
-            print_value 'uin:AVERAGE', :format => 'Avg\: %9.0lf %s℃'
-            print_value 'umin:MAX', :format => 'Max\: %9.0lf %s℃\n'
 
-            draw_line :data => 'uout', :color => '#0000ff', :label => 'Exhaust\t'
-            print_value 'uout:LAST', :format => 'Cur\: %9.0lf %s℃'
-            print_value 'uout:AVERAGE', :format => 'Avg\: %9.0lf %s℃'
-            print_value 'umout:MAX', :format => 'Max\: %9.0lf %s℃\n'
+            draw_area :data => 'mout', :color => '#FF3348', :label => ''
+            draw_line :data => 'mout', :color => '#B30000', :label => ''
+            draw_area :data => 'uout', :color => '#ff7e4d', :label => 'Exhaust\t'
+            draw_line :data => 'uout', :color => '#cc1800', :label => ''
+            print_value 'uout:LAST', :format => 'Cur\: %5.0lf %s°C'
+            print_value 'uout:AVERAGE', :format => 'Avg\: %5.0lf %s°C'
+            print_value 'umout:MAX', :format => 'Max\: %5.0lf %s°C\n'
+
+            draw_area :data => 'min', :color => '#339937', :label => ''
+            draw_line :data => 'min', :color => '#004D00', :label => ''
+            draw_area :data => 'uin', :color => '#99ff9D', :label => 'Intake\t'
+            draw_line :data => 'uin', :color => '#009900', :label => ''
+            print_value 'uin:LAST', :format => 'Cur\: %5.0lf %s°C'
+            print_value 'uin:AVERAGE', :format => 'Avg\: %5.0lf %s°C'
+            print_value 'umin:MAX', :format => 'Max\: %5.0lf %s°C\n'
+
           end
         end
       end
