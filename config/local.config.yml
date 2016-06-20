@@ -369,34 +369,6 @@ data:
                 files: 'sauron.iface.10124.rrd'
       - name: 'ore02.obscured.se'
         nodes:
-          - name: 'csgo01.clanwiki.nu'
-            path: 'csgo01'
-            type: :server
-            metrics:
-              - type: :traffic
-                category: :network
-                files: 'csgo01.iface.eth0.rrd'
-              - type: :traffic
-                category: :network
-                files: 'csgo01.iface.eth1.rrd'
-              - type: :cpu
-                category: :hardware
-                files: 'csgo01.cpu.rrd'
-              - type: :memory
-                category: :hardware
-                max: 17179869184
-                files: 'csgo01.memory.rrd'
-              - type: :disk
-                category: :hardware
-                max: 322122547200
-                files: 'csgo01.disk.rrd'
-              - type: :processes
-                category: :hardware
-                os: :linux
-                files: 'csgo01.processes.rrd'
-              - type: :uptime
-                category: :hardware
-                files: 'csgo01.uptime.rrd'
           - name: 'Celeborn'
             path:  'celeborn'
             type: :router
@@ -504,6 +476,34 @@ data:
                 aggregated: true
                 name: '10.0.0.2_vlan.load.aggregated'
                 files: ['10.0.0.2_1000.rrd','10.0.0.2_2000.rrd','10.0.0.2_3000.rrd','10.0.0.2_3001.rrd']
+          - name: 'GAME01'
+            path: 'csgo01'
+            type: :server
+            metrics:
+              - type: :traffic
+                category: :network
+                files: 'csgo01.iface.eth0.rrd'
+              - type: :traffic
+                category: :network
+                files: 'csgo01.iface.eth1.rrd'
+              - type: :cpu
+                category: :hardware
+                files: 'csgo01.cpu.rrd'
+              - type: :memory
+                category: :hardware
+                max: 17179869184
+                files: 'csgo01.memory.rrd'
+              - type: :disk
+                category: :hardware
+                max: 322122547200
+                files: 'csgo01.disk.rrd'
+              - type: :processes
+                category: :hardware
+                os: :linux
+                files: 'csgo01.processes.rrd'
+              - type: :uptime
+                category: :hardware
+                files: 'csgo01.uptime.rrd'
           - name: 'VM01'
             path: 'vm01'
             type: :server
