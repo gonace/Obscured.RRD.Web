@@ -49,6 +49,7 @@ module Obscured
             else
               Obscured::Metrics::Disk.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
             end
+          when :load
           when :memory
             if options[:files].kind_of?(Array)
               options[:files].each do |file|
