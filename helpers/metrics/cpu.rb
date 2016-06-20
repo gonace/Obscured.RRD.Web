@@ -23,6 +23,7 @@ module Obscured
           raise ArgumentError, 'No rrd file provided!' unless options[:file]
           raise ArgumentError, 'No graph path provided!' unless options[:graph_path]
 
+
           path_rrd = options[:file]
           path_graph = "#{options[:graph_path]}/"
           graph_type = (!options[:type].blank?) ? options[:type] : Obscured.c('metrics.types').select {|e| e['type'] == :cpu}.first

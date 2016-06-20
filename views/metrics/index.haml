@@ -13,24 +13,28 @@
 
   .row
     .col-md-10
-      - metrics.each do |category|
-        %h1.page-header{ :id => category.name}= category.name
-        - category.graphs.each do |graph|
-          .panel.panel-default{ :id => graph.image }
-            .panel-heading
-              = graph.name
-            .panel-body
-              %a{:href => "/metric/#{graph.node.group}/#{graph.node.path}/#{graph.id}" }
-                %img{:src => "/graphs/#{graph.node.path}/#{graph.image}", :alt => graph.name, width: '100%'}
+      - if !metrics.blank?
+        - metrics.each do |category|
+          %h1.page-header{ :id => category.name}= category.name
+          - category.graphs.each do |graph|
+            .zero-clipboard
+              %span.btn-clipboard=":#{graph.type['type']}"
+            .panel.panel-default{ :id => graph.image }
+              .panel-heading
+                = graph.name
+              .panel-body
+                %a{:href => "/metric/#{graph.node.group}/#{graph.node.path}/#{graph.id}" }
+                  %img{:src => "/graphs/#{graph.node.path}/#{graph.image}", :alt => graph.name, width: '100%'}
 
     .col-md-2{:role => 'complementary'}
       %nav.bs-docs-sidebar.hidden-print.hidden-xs.hidden-sm.affix-top
         %ul.nav.bs-docs-sidenav
-          - metrics.each do |category|
-            %li
-              %a{:href => "##{category.name}"}= category.name
-              %ul.nav
-                - category.graphs.each do |graph|
-                  %li
-                    %a{:href => "##{graph.image}"}= graph.image
+          - if !metrics.blank?
+            - metrics.each do |category|
+              %li
+                %a{:href => "##{category.name}"}= category.name
+                %ul.nav
+                  - category.graphs.each do |graph|
+                    %li
+                      %a{:href => "##{graph.image}"}= graph.image
         %a.back-to-top{:href => '#top'} Back to top

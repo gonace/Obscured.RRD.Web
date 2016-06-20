@@ -71,6 +71,9 @@ metrics:
     - type: :packages
       title: 'Packages (%{suffix})'
       suffix: 'P/s'
+    - type: :processes
+      title: 'Processes (%{suffix})'
+      suffix: 'Pc.'
     - type: :temperature
       title: 'Temperature (%{suffix})'
       suffix: '°C'
@@ -366,6 +369,34 @@ data:
                 files: 'sauron.iface.10124.rrd'
       - name: 'ore02.obscured.se'
         nodes:
+          - name: 'csgo01.clanwiki.nu'
+            path: 'csgo01'
+            type: :server
+            metrics:
+              - type: :traffic
+                category: :network
+                files: 'csgo01.iface.eth0.rrd'
+              - type: :traffic
+                category: :network
+                files: 'csgo01.iface.eth1.rrd'
+              - type: :cpu
+                category: :hardware
+                files: 'csgo01.cpu.rrd'
+              - type: :memory
+                category: :hardware
+                max: 17179869184
+                files: 'csgo01.memory.rrd'
+              - type: :disk
+                category: :hardware
+                max: 322122547200
+                files: 'csgo01.disk.rrd'
+              - type: :processes
+                category: :hardware
+                os: :linux
+                files: 'csgo01.processes.rrd'
+              - type: :uptime
+                category: :hardware
+                files: 'csgo01.uptime.rrd'
           - name: 'Celeborn'
             path:  'celeborn'
             type: :router
