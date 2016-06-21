@@ -68,7 +68,6 @@ module Obscured
             print_value 'uin:LAST', :format => 'Cur\: %5.0lf %s°C'
             print_value 'uin:AVERAGE', :format => 'Avg\: %5.0lf %s°C'
             print_value 'umin:MAX', :format => 'Max\: %5.0lf %s°C\n'
-
           end
         end
       end
