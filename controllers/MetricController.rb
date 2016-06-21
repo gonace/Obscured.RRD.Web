@@ -33,8 +33,9 @@ class MetricController < BaseController
       metric_type = Obscured.c('metrics.types').select {|e| e['type'] == metric['type']}.first
       server_name = node['name']
       metric_name = metric['type'].to_s
-
-      Obscured::Metric.generate(:node => node, :offsets => offsets, :graph_root => graph_root)
+      #node_generate = node
+      #node_generate['metrics'] = node_generate['metrics'].reject {|x| (x['files'] != file_metric.to_s or x['type'] != metric_name.to_sym)}
+      Obscured::Metric.generate(:file => file_metric, :node => node, :offsets => offsets, :graph_root => graph_root)
 
       metrics = []
       offsets.each do |offset|

@@ -71,6 +71,9 @@ metrics:
     - type: :packages
       title: 'Packages (%{suffix})'
       suffix: 'P/s'
+    - type: :packets
+      title: 'Packets (%{suffix})'
+      suffix: 'Packets'
     - type: :processes
       title: 'Processes (%{suffix})'
       suffix: 'Pc.'
@@ -175,6 +178,7 @@ data:
             metrics:
               - type: :temperature
                 category: :hardware
+                os: :cisco
                 files: 'gimli.temperature.rrd'
               - type: :cpu
                 category: :hardware
@@ -183,6 +187,16 @@ data:
                 category: :hardware
                 max: 536870912
                 files: 'gimli.mem.rrd'
+              - title: 'Translated NAT Packets (%{suffix})'
+                type: :packets
+                category: :nat
+                os: :cisco
+                files: 'gimli.nat.statistics.rrd'
+              - title: 'Rejected NAT Packets (%{suffix})'
+                type: :packets
+                category: :nat
+                os: :cisco
+                files: 'gimli.nat.rejected.rrd'
               - title: 'Port 1 (0:0)'
                 type: :traffic
                 category: :network
@@ -376,6 +390,16 @@ data:
               - type: :cpu
                 category: :hardware
                 files: 'celeborn.cpu.rrd'
+              - title: 'Translated NAT Packets (%{suffix})'
+                type: :packets
+                category: :nat
+                os: :cisco
+                files: 'celeborn.nat.statistics.rrd'
+              - title: 'Rejected NAT Packets (%{suffix})'
+                type: :packets
+                category: :nat
+                os: :cisco
+                files: 'celeborn.nat.rejected.rrd'
               - type: :memory
                 category: :hardware
                 max: 268435456

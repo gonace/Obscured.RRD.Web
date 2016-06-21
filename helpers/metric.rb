@@ -11,12 +11,24 @@ module Obscured
             if (defined? metric['os'])
               options[:os] = metric['os']
             end
-
             options[:files] = metric['files']
             options[:offset] = offset
             options[:metric] = metric
 
-            generate_type options
+            if(!options[:file].blank?)
+              if (metric['files'] == options[:file])
+                generate_type options
+              end
+            else
+              if options[:files].kind_of?(Array)
+                options[:files].each do |file|
+                  options[:files] = file
+                  generate_type options
+                end
+              else
+                generate_type options
+              end
+            end
           end
         end
       end
@@ -31,87 +43,36 @@ module Obscured
 
         case options[:metric]['type']
           when :cpu
-            if options[:files].kind_of?(Array)
-              options[:files].each do |file|
-                Obscured::Metrics::CPU.generate(:name => options[:node]['path'], :offset => options[:offset], :file => file, :metric => options[:metric], :graph_root => options[:graph_root])
-              end
-            else
-              if(!options[:os].blank?)
-              else
-                Obscured::Metrics::CPU.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
-              end
-            end
+            Obscured::Metrics::CPU.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
           when :disk
-            if options[:files].kind_of?(Array)
-              options[:files].each do |file|
-                Obscured::Metrics::Disk.generate(:name => options[:node]['path'], :offset => options[:offset], :file => file, :metric => options[:metric], :graph_root => options[:graph_root])
-              end
-            else
-              Obscured::Metrics::Disk.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
-            end
+            Obscured::Metrics::Disk.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
           when :load
           when :memory
-            if options[:files].kind_of?(Array)
-              options[:files].each do |file|
-                Obscured::Metrics::Memory.generate(:name => options[:node]['path'], :offset => options[:offset], :file => file, :metric => options[:metric], :graph_root => options[:graph_root])
-              end
-            else
-              Obscured::Metrics::Memory.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
+            Obscured::Metrics::Memory.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
+          when :packets
+            if(!options[:os].blank? and options[:os] == :cisco)
+              Obscured::Metrics::Cisco::Packets.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
             end
           when :processes
-            if options[:files].kind_of?(Array)
-              options[:files].each do |file|
-                if(!options[:os].blank?)
-                  if(options[:os] == :linux)
-                    Obscured::Metrics::Linux::Processes.generate(:name => options[:node]['path'], :offset => options[:offset], :file => file, :metric => options[:metric], :graph_root => options[:graph_root])
-                  elsif(options[:os] == :windows)
-                    Obscured::Metrics::Windows::Processes.generate(:name => options[:node]['path'], :offset => options[:offset], :file => file, :metric => options[:metric], :graph_root => options[:graph_root])
-                  end
-                else
-                  Obscured::Metrics::Processes.generate(:name => options[:node]['path'], :offset => options[:offset], :file => file, :metric => options[:metric], :graph_root => options[:graph_root])
-                end
-              end
+            if(!options[:os].blank? and options[:os] == :linux)
+              Obscured::Metrics::Linux::Processes.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
+            elsif(!options[:os].blank? and options[:os] == :windows)
+              Obscured::Metrics::Windows::Processes.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
             else
-              if(!options[:os].blank?)
-                Obscured::Metrics::Linux::Processes.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
-              elsif(options[:os] == :windows)
-                Obscured::Metrics::Windows::Processes.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
-              else
-                Obscured::Metrics::Processes.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
-              end
+              Obscured::Metrics::Processes.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
             end
           when :temperature
-            if options[:files].kind_of?(Array)
-              options[:files].each do |file|
-                Obscured::Metrics::Temperature.generate(:name => options[:node]['path'], :offset => options[:offset], :file => file, :metric => options[:metric], :graph_root => options[:graph_root])
-              end
+            if(!options[:os].blank? and options[:os] == :cisco)
+              Obscured::Metrics::Cisco::Temperature.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
             else
               Obscured::Metrics::Temperature.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
             end
           when :traffic
-            if options[:files].kind_of?(Array)
-              options[:files].each do |file|
-                Obscured::Metrics::Traffic.generate(:name => options[:node]['path'], :offset => options[:offset], :file => file, :metric => options[:metric], :graph_root => options[:graph_root])
-              end
-            else
-              Obscured::Metrics::Traffic.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
-            end
+            Obscured::Metrics::Traffic.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
           when :temperature
-            if options[:files].kind_of?(Array)
-              options[:files].each do |file|
-                Obscured::Metrics::Temperature.generate(:name => options[:node]['path'], :offset => options[:offset], :file => file, :metric => options[:metric], :graph_root => options[:graph_root])
-              end
-            else
-              Obscured::Metrics::Temperature.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
-            end
+            Obscured::Metrics::Temperature.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
           when :uptime
-            if options[:files].kind_of?(Array)
-              options[:files].each do |file|
-                Obscured::Metrics::Uptime.generate(:name => options[:node]['path'], :offset => options[:offset], :file => file, :metric => options[:metric], :graph_root => options[:graph_root])
-              end
-            else
-              Obscured::Metrics::Uptime.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
-            end
+            Obscured::Metrics::Uptime.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
           else
             raise ArgumentError, "Metric type not supported (#{options[:metric]['type']})"
         end
