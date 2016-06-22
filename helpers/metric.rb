@@ -43,12 +43,23 @@ module Obscured
 
         case options[:metric]['type']
           when :cpu
-            Obscured::Metrics::CPU.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
+            if(!options[:os].blank? and options[:os] == :linux)
+              Obscured::Metrics::Linux::CPU.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
+            else
+              Obscured::Metrics::CPU.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
+            end
           when :disk
             Obscured::Metrics::Disk.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
           when :load
+            if(!options[:os].blank? and options[:os] == :linux)
+              Obscured::Metrics::Linux::Load.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
+            end
           when :memory
-            Obscured::Metrics::Memory.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
+            if(!options[:os].blank? and options[:os] == :linux)
+              Obscured::Metrics::Linux::Memory.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
+            else
+              Obscured::Metrics::Memory.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
+            end
           when :packets
             if(!options[:os].blank? and options[:os] == :cisco)
               Obscured::Metrics::Cisco::Packets.generate(:name => options[:node]['path'], :offset => options[:offset], :metric => options[:metric], :graph_root => options[:graph_root])
