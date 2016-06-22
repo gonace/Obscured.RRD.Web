@@ -84,7 +84,7 @@ metrics:
       title: 'Uptime (%{suffix})'
       suffix: 'days'
     - type: :load
-      title: 'Load (%{suffix})'
+      title: 'System Load (%{suffix})'
       suffix: '%'
 data:
   root: '/data'
@@ -510,12 +510,18 @@ data:
               - type: :traffic
                 category: :network
                 files: 'csgo01.iface.eth1.rrd'
+              - type: :load
+                category: :hardware
+                os: :linux
+                files: 'csgo01.load.rrd'
               - type: :cpu
                 category: :hardware
+                os: :linux
                 files: 'csgo01.cpu.rrd'
               - type: :memory
                 category: :hardware
                 max: 17179869184
+                os: :linux
                 files: 'csgo01.memory.rrd'
               - type: :disk
                 category: :hardware
