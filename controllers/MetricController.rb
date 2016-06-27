@@ -15,9 +15,10 @@ class MetricController < BaseController
     metric_name = ''
 
     begin
-      offsets = [Obscured.c('graph.offsets.daily'), Obscured.c('graph.offsets.weekly'), Obscured.c('graph.offsets.monthly'), Obscured.c('graph.offsets.yearly'), Obscured.c('graph.offsets.triennium')]
+      graph_offsets = [Obscured.c('graph.offsets.daily'), Obscured.c('graph.offsets.weekly'), Obscured.c('graph.offsets.monthly'), Obscured.c('graph.offsets.yearly'), Obscured.c('graph.offsets.triennium')]
       graph_root = settings.root + '/../public/graphs'
       group = Obscured.c('data.sources.groups').find{|a| a['name'] == server_group}
+
       if group.blank? or group.empty?
         redirect ('/error/404')
       end
@@ -33,12 +34,10 @@ class MetricController < BaseController
       metric_type = Obscured.c('metrics.types').select {|e| e['type'] == metric['type']}.first
       server_name = node['name']
       metric_name = metric['type'].to_s
-      #node_generate = node
-      #node_generate['metrics'] = node_generate['metrics'].reject {|x| (x['files'] != file_metric.to_s or x['type'] != metric_name.to_sym)}
-      Obscured::Metric.generate(:file => file_metric, :node => node, :offsets => offsets, :graph_root => graph_root)
+      Obscured::Metric.generate(:file => file_metric, :node => node, :offsets => graph_offsets, :graph_root => graph_root)
 
       metrics = []
-      offsets.each do |offset|
+      graph_offsets.each do |offset|
         unless metrics.any? {|m| m.name == metric_name.to_s.capitalize}
           metrics.push Obscured::Entities::Category.new(metric_name.to_s.capitalize)
         end

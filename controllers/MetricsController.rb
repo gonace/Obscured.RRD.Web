@@ -13,8 +13,9 @@ class MetricsController < BaseController
 
     begin
       graph_root = settings.root + '/../public/graphs'
-      offsets = [Obscured.c('graph.offsets.weekly')]
+      graph_offsets = [Obscured.c('graph.offsets.weekly')]
       group = Obscured.c('data.sources.groups').find{|a| a['name'] == server_group}
+
       if group.blank? or group.empty?
         redirect ('/error/404')
       end
@@ -27,7 +28,7 @@ class MetricsController < BaseController
       if !Dir.exists? graph_root + "/#{server_path}"
         Dir.mkdir graph_root + "/#{server_path}"
       end
-      Obscured::Metric.generate(:node => node, :offsets => offsets, :graph_root => graph_root)
+      Obscured::Metric.generate(:node => node, :offsets => graph_offsets, :graph_root => graph_root)
 
 
       metrics = []
