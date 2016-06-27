@@ -6,6 +6,8 @@ class HomeController < BaseController
 
     begin
       groups = Obscured.c('data.sources.groups')
+      graph_offsets = [Obscured.c('graph.offsets.weekly')]
+      graph_root = settings.root + '/../public/graphs'
 
       metrics = []
       groups.each do |group|
@@ -24,6 +26,9 @@ class HomeController < BaseController
               if index_category >= 0
                 metrics[index_category].graphs.push Obscured::Entities::Graph.new(metric_file, metric_title, metric_image, metric_type, Obscured::Entities::Node.new(node['name'], node['path'].downcase, group['name'], node['type'].to_s))
               end
+
+
+              Obscured::Metric.generate(:file => metric_file, :node => node, :offsets => graph_offsets, :graph_root => graph_root)
             end
           end
         end
