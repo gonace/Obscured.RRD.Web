@@ -48,7 +48,7 @@ class MetricsController < BaseController
         end
       end
     rescue ArgumentError => e
-      flash[:metrics_error] = "I'm sad to say that he found an error: #{e.message}"
+      flash[:metrics_error] = "I'm sad to say that a problem was found: #{e.message}"
     end
 
     haml :index, :locals => {:render_time => render_time,
