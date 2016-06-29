@@ -14,3 +14,7 @@
         %a{:href => 'http://www.gonace.com/', :target => '_blank'} @gonace
     - if defined? render_time
       %p Page rendered in #{Time.now - render_time} seconds
+    %span.footer-brand
+      %span Powered by
+      %img{:src => '/images/logo-mrtg.png'}
+      %img{:src => '/images/logo-rrdtool.png'}

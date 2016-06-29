@@ -249,7 +249,18 @@ h4 code {
   background-image: url('/homer/img/willie-angry.png');
   bottom: -52px;
 }
-
+.bs-docs-footer .footer-brand {
+  position: absolute;
+  right: 0;
+  top: calc(59% - 37.5px);
+}
+.bs-docs-footer .footer-brand span {
+  display: block;
+  margin: 0 0 5px 0;
+}
+.bs-docs-footer .footer-brand img {
+  max-width: 125px;
+}
 
 @media (min-width: 768px) {
   .bs-docs-footer {
@@ -259,6 +270,14 @@ h4 code {
     margin-bottom: 0;
   }
 }
+@media (max-width: 768px) {
+  .bs-docs-footer .footer-brand {
+    position: relative;
+    right: 0;
+    top: auto;
+  }
+}
+
 
 
 /*
