@@ -84,7 +84,7 @@ metrics:
       title: 'Uptime (%{suffix})'
       suffix: 'days'
     - type: :load
-      title: 'Load (%{suffix})'
+      title: 'System Load (%{suffix})'
       suffix: '%'
 data:
   root: '/data'
@@ -112,6 +112,13 @@ data:
             path: 'boromir'
             type: :switch
             metrics:
+              - type: :cpu
+                category: :hardware
+                files: 'boromir.cpu.rrd'
+              - type: :memory
+                category: :hardware
+                max: 67108864
+                files: 'boromir.mem.rrd'
               - title: 'Port 1 (0:1) Traffic (%{suffix})'
                 category: :network
                 type: :traffic
@@ -281,6 +288,13 @@ data:
             path: 'sauron'
             type: :switch
             metrics:
+              - type: :cpu
+                category: :hardware
+                files: 'sauron.cpu.rrd'
+              - type: :memory
+                category: :hardware
+                max: 67108864
+                files: 'sauron.mem.rrd'
               - title: 'Port Traffic 1 (%{suffix})'
                 type: :traffic
                 category: :network
@@ -456,6 +470,13 @@ data:
             path:  'legolas'
             type: :switch
             metrics:
+              - type: :cpu
+                category: :hardware
+                files: 'legolas.cpu.rrd'
+              - type: :memory
+                category: :hardware
+                max: 67108864
+                files: 'legolas.mem.rrd'
               - title: 'Port 21 (T:21) Traffic (%{suffix})'
                 type: :traffic
                 category: :network
@@ -510,12 +531,18 @@ data:
               - type: :traffic
                 category: :network
                 files: 'csgo01.iface.eth1.rrd'
+              - type: :load
+                category: :hardware
+                os: :linux
+                files: 'csgo01.load.rrd'
               - type: :cpu
                 category: :hardware
+                os: :linux
                 files: 'csgo01.cpu.rrd'
               - type: :memory
                 category: :hardware
                 max: 17179869184
+                os: :linux
                 files: 'csgo01.memory.rrd'
               - type: :disk
                 category: :hardware
