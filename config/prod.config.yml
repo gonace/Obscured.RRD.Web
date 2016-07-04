@@ -112,6 +112,9 @@ data:
             path: 'boromir'
             type: :switch
             metrics:
+                category: :hardware
+                os: :cisco
+                files: 'boromir.temperature.rrd'
               - type: :cpu
                 category: :hardware
                 files: 'boromir.cpu.rrd'
