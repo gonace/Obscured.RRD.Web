@@ -112,6 +112,7 @@ data:
             path: 'boromir'
             type: :switch
             metrics:
+              - type: :temperature
                 category: :hardware
                 os: :cisco
                 files: 'boromir.temperature.rrd'
@@ -618,26 +619,26 @@ data:
               - type: :uptime
                 category: :hardware
                 files: 'vm03.uptime.rrd'
-          - name: 'VM04'
-            path: 'vm04'
-            type: :server
-            metrics:
-              - type: :cpu
-                category: :hardware
-                files: 'vm04.cpu.rrd'
-              - type: :traffic
-                category: :network
-                files: 'vm04.inet.rrd'
-              - type: :memory
-                category: :hardware
-                max: 34359738368
-                files: 'vm04.mem.rrd'
-              - type: :traffic
-                category: :network
-                files: 'vm04.trunk.rrd'
-              - type: :uptime
-                category: :hardware
-                files: 'vm04.uptime.rrd'
+          #- name: 'VM04'
+          #  path: 'vm04'
+          #  type: :server
+          #  metrics:
+          #    - type: :cpu
+          #      category: :hardware
+          #      files: 'vm04.cpu.rrd'
+          #    - type: :traffic
+          #      category: :network
+          #      files: 'vm04.inet.rrd'
+          #    - type: :memory
+          #      category: :hardware
+          #      max: 34359738368
+          #      files: 'vm04.mem.rrd'
+          #    - type: :traffic
+          #      category: :network
+          #      files: 'vm04.trunk.rrd'
+          #    - type: :uptime
+          #      category: :hardware
+          #      files: 'vm04.uptime.rrd'
           - name: 'VM05'
             path: 'vm05'
             type: :server
@@ -658,26 +659,26 @@ data:
               - type: :uptime
                 category: :hardware
                 files: 'vm05.uptime.rrd'
-          - name: 'NAS01'
-            path: 'nas01'
-            type: :server
-            metrics:
-              - type: :cpu
-                category: :hardware
-                files: 'nas01.cpu.rrd'
-              - type: :traffic
-                category: :network
-                files: 'nas01.inet.rrd'
-              - type: :memory
-                category: :hardware
-                max: 34359738368
-                files: 'nas01.mem.rrd'
-              - type: :traffic
-                category: :network
-                files: 'nas01.trunk.rrd'
-              - type: :uptime
-                category: :hardware
-                files: 'nas01.uptime.rrd'
+          #- name: 'NAS01'
+          #  path: 'nas01'
+          #  type: :server
+          #  metrics:
+          #    - type: :cpu
+          #      category: :hardware
+          #      files: 'nas01.cpu.rrd'
+          #    - type: :traffic
+          #      category: :network
+          #      files: 'nas01.inet.rrd'
+          #    - type: :memory
+          #      category: :hardware
+          #      max: 34359738368
+          #      files: 'nas01.mem.rrd'
+          #    - type: :traffic
+          #      category: :network
+          #      files: 'nas01.trunk.rrd'
+          #    - type: :uptime
+          #      category: :hardware
+          #      files: 'nas01.uptime.rrd'
       - name: 'ore03.obscured.se'
         nodes:
           - name: 'Eomer'
