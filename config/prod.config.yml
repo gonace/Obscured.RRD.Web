@@ -116,6 +116,11 @@ data:
                 category: :hardware
                 os: :cisco
                 files: 'boromir.temperature.rrd'
+                data:
+                  - name: 'ds0'
+                    description: 'Intake'
+                  - name: 'ds1'
+                    skip: true
               - type: :cpu
                 category: :hardware
                 files: 'boromir.cpu.rrd'
@@ -191,10 +196,16 @@ data:
                 category: :hardware
                 os: :cisco
                 files: 'gimli.temperature.rrd'
-              - type: :temperature
+              - title: 'CPU Temperature (%{suffix})'
+                type: :temperature
                 category: :hardware
                 os: :cisco
                 files: 'gimli.temperature.cpu.rrd'
+                data:
+                  - name: 'ds0'
+                    description: 'Temperature'
+                  - name: 'ds1'
+                    skip: true
               - type: :cpu
                 category: :hardware
                 files: 'gimli.cpu.rrd'
