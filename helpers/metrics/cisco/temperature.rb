@@ -33,6 +33,7 @@ module Obscured
             graph_name.slice! '.rrd'
             graph_name += "-#{graph_offset['name']}.png"
             graph_title = (!options[:graph_title].blank?) ? options[:graph_title] % { :i => 0, :suffix => graph_type['suffix'] } : graph_type['title'] % { :i => 0, :suffix => graph_type['suffix'] }
+            graph_options = (!options[:metric]['data'].blank?) ? options[:metric]['data'] : nil
 
             RRD.graph("#{path_graph}#{graph_name}",
                       :start => Time.now - eval(graph_offset['offset']).to_i, :end => Time.now, :step => eval(graph_offset['step']).to_i,
@@ -54,21 +55,27 @@ module Obscured
               using_calculated_data 'pmout', :calc => 'umout,100,/,100,*,1,/'
 
 
-              draw_area :data => 'mout', :color => '#FF3348', :label => ''
-              draw_line :data => 'mout', :color => '#B30000', :label => ''
-              draw_area :data => 'uout', :color => '#ff7e4d', :label => 'Exhaust\t'
-              draw_line :data => 'uout', :color => '#cc1800', :label => ''
-              print_value 'uout:LAST', :format => 'Cur\: %5.0lf %s°C'
-              print_value 'uout:AVERAGE', :format => 'Avg\: %5.0lf %s°C'
-              print_value 'umout:MAX', :format => 'Max\: %5.0lf %s°C\n'
+              graph_ds0 = (!graph_options.blank?) ? graph_options.select {|e| e['name'] == 'ds0'}.first : nil
+              if(graph_options.blank? or (!graph_options.blank? and graph_ds0['skip'] != true))
+                draw_area :data => 'mout', :color => '#FF3348', :label => ''
+                draw_line :data => 'mout', :color => '#B30000', :label => ''
+                draw_area :data => 'uout', :color => '#ff7e4d', :label => (!graph_ds0.blank? and !graph_ds0['description'].blank?) ? "#{graph_ds0['description']}\t" : 'Exhaust\t'
+                draw_line :data => 'uout', :color => '#cc1800', :label => ''
+                print_value 'uout:LAST', :format => 'Cur\: %5.0lf %s°C'
+                print_value 'uout:AVERAGE', :format => 'Avg\: %5.0lf %s°C'
+                print_value 'umout:MAX', :format => 'Max\: %5.0lf %s°C\n'
+              end
 
-              draw_area :data => 'min', :color => '#339937', :label => ''
-              draw_line :data => 'min', :color => '#004D00', :label => ''
-              draw_area :data => 'uin', :color => '#99ff9D', :label => 'Intake\t'
-              draw_line :data => 'uin', :color => '#009900', :label => ''
-              print_value 'uin:LAST', :format => 'Cur\: %5.0lf %s°C'
-              print_value 'uin:AVERAGE', :format => 'Avg\: %5.0lf %s°C'
-              print_value 'umin:MAX', :format => 'Max\: %5.0lf %s°C\n'
+              graph_ds1 = (!graph_options.blank?) ? graph_options.select {|e| e['name'] == 'ds1'}.first : nil
+              if(graph_options.blank? or (!graph_options.blank? and graph_ds1['skip'] != true))
+                draw_area :data => 'min', :color => '#339937', :label => ''
+                draw_line :data => 'min', :color => '#004D00', :label => ''
+                draw_area :data => 'uin', :color => '#99ff9D', :label => (!graph_ds1.blank? and !graph_ds1['description'].blank?) ? "#{graph_ds1['description']}\t" : 'Intake\t'
+                draw_line :data => 'uin', :color => '#009900', :label => ''
+                print_value 'uin:LAST', :format => 'Cur\: %5.0lf %s°C'
+                print_value 'uin:AVERAGE', :format => 'Avg\: %5.0lf %s°C'
+                print_value 'umin:MAX', :format => 'Max\: %5.0lf %s°C\n'
+              end
             end
           end
         end

@@ -191,6 +191,10 @@ data:
                 category: :hardware
                 os: :cisco
                 files: 'gimli.temperature.rrd'
+              - type: :temperature
+                category: :hardware
+                os: :cisco
+                files: 'gimli.temperature.cpu.rrd'
               - type: :cpu
                 category: :hardware
                 files: 'gimli.cpu.rrd'
