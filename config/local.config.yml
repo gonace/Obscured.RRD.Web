@@ -701,6 +701,11 @@ data:
               - type: :traffic
                 category: :network
                 files: 'iqraul01.network.rrd'
+              - type: :memory
+                category: :hardware
+                max: 68719476736
+                os: :linux
+                files: 'iqraul01.memory.rrd'
       - name: 'ore03.obscured.se'
         nodes:
           - name: 'Eomer'
