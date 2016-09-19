@@ -700,7 +700,13 @@ data:
             metrics:
               - type: :traffic
                 category: :network
-                files: 'iqraul01.network.rrd'
+                files: 'iqraul01.nic0.rrd'
+              - type: :traffic
+                category: :network
+                files: 'iqraul01.nic1.rrd'
+              - type: :cpu
+                category: :hardware
+                files: 'iqraul01.load.rrd'
               - type: :memory
                 category: :hardware
                 max: 68719476736
