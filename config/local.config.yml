@@ -694,6 +694,13 @@ data:
           #    - type: :uptime
           #      category: :hardware
           #      files: 'nas01.uptime.rrd'
+          - name: 'IQRAUL01'
+            path: 'iqraul01'
+            type: :server
+            metrics:
+              - type: :traffic
+                category: :network
+                files: 'iqraul01.network.rrd'
       - name: 'ore03.obscured.se'
         nodes:
           - name: 'Eomer'
