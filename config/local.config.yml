@@ -251,12 +251,6 @@ data:
                 type: :traffic
                 category: :vlan
                 files: 'gimli.iface.9.rrd'
-              - title: 'VLAN Load (%{suffix})'
-                type: :load
-                category: :vlan
-                aggregated: true
-                name: 'gimli.vlan.load'
-                files: ['gimli.iface.5.rrd','gimli.iface.6.rrd','gimli.iface.7.rrd','gimli.iface.8.rrd','gimli.iface.9.rrd']
           - name: 'Pippin'
             path: 'pippin'
             type: :server
@@ -264,6 +258,22 @@ data:
               - type: :traffic
                 category: :network
                 files: 'pippin.inet.rrd'
+              - title: 'Intel Ethernet Server Adapter i350 #1 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'pippin.iface1.rrd'
+              - title: 'Intel Ethernet Server Adapter i350 #2 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'pippin.iface2.rrd'
+              - title: 'Intel Ethernet Server Adapter i350 #3 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'pippin.iface3.rrd'
+              - title: 'Intel Ethernet Server Adapter i350 #4 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'pippin.iface4.rrd'
               - type: :disk
                 category: :hardware
                 max: 43980465111040
@@ -473,18 +483,6 @@ data:
                 type: :traffic
                 category: :vlan
                 files: 'celeborn.iface_23.rrd'
-              - title: 'VLAN Traffic (%{suffix})'
-                type: :traffic
-                category: :vlan
-                aggregated: true
-                name: 'celeborn.vlan.aggregated'
-                files: ['celeborn.iface_17.rrd','celeborn.iface_18.rrd','celeborn.iface_19.rrd']
-              - title: 'VLAN Load (%{suffix})'
-                type: :load
-                category: :vlan
-                aggregated: true
-                name: 'celeborn.vlan.load'
-                files: ['celeborn.iface_17.rrd','celeborn.iface_18.rrd','celeborn.iface_19.rrd']
           - name: 'Legolas'
             path:  'legolas'
             type: :switch
@@ -528,18 +526,6 @@ data:
                 type: :traffic
                 category: :vlan
                 files: '10.0.0.2_3001.rrd'
-              - title: 'VLAN Traffic (%{suffix})'
-                type: :traffic
-                category: :vlan
-                aggregated: true
-                name: '10.0.0.2_vlan.traffic.aggregated'
-                files: ['10.0.0.2_1000.rrd','10.0.0.2_2000.rrd','10.0.0.2_3000.rrd','10.0.0.2_3001.rrd']
-              - title: 'VLAN Load (%{suffix})'
-                type: :load
-                category: :vlan
-                aggregated: true
-                name: '10.0.0.2_vlan.load.aggregated'
-                files: ['10.0.0.2_1000.rrd','10.0.0.2_2000.rrd','10.0.0.2_3000.rrd','10.0.0.2_3001.rrd']
           - name: 'GAME01'
             path: 'csgo01'
             type: :server
