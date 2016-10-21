@@ -570,7 +570,7 @@ data:
                 type: :traffic
                 category: :network
                 files: '10.0.0.2_10118.rrd'
-              - title: 'Port 19 (P:19) Traffic (%{suffix})'
+              - title: 'Port 19 (P:19) Traffic - RAUL-CIMC (%{suffix})'
                 type: :traffic
                 category: :network
                 files: '10.0.0.2_10119.rrd'
