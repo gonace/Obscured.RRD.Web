@@ -14,4 +14,4 @@ pipelines:
     master:
       - step:
         script:
-          ./bin/deploy
+          - ./bin/deploy
