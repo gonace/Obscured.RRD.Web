@@ -1276,8 +1276,10 @@ h1[id] {
   background-color: transparent;
   color: #ffc20e;
 }
-.dropdown-menu > li > a {
-  color: #fff;
+@media (max-width: 992px) {
+  .dropdown-menu > li > a {
+    color: #fff;
+  }
 }
 
 /* Example tabbable tabs */
