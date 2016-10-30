@@ -10,8 +10,8 @@ pipelines:
         script:
           - bundler --version
           - bundle install
-  branches:
-    master:
-      - step:
-          script:
-            - ./bin/deploy
+  #branches:
+  #  master:
+  #    - step:
+  #        script:
+  #          - ./bin/deploy production

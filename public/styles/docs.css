@@ -11,6 +11,7 @@
  * Update the basics of our documents to prep for docs content.
  */
 
+
 body {
   position: relative; /* For scrollspy */
 }
@@ -1274,6 +1275,9 @@ h1[id] {
 .nav .open > a:hover {
   background-color: transparent;
   color: #ffc20e;
+}
+.dropdown-menu > li > a {
+  color: #fff;
 }
 
 /* Example tabbable tabs */
