@@ -13,4 +13,5 @@ pipelines:
   branches:
     master:
       - step:
-        ./bin/deploy
+        script:
+          ./bin/deploy
