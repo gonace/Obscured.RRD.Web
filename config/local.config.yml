@@ -251,19 +251,10 @@ data:
                 type: :traffic
                 category: :vlan
                 files: 'gimli.iface.9.rrd'
-              - title: 'VLAN Load (%{suffix})'
-                type: :load
-                category: :vlan
-                aggregated: true
-                name: 'gimli.vlan.load'
-                files: ['gimli.iface.5.rrd','gimli.iface.6.rrd','gimli.iface.7.rrd','gimli.iface.8.rrd','gimli.iface.9.rrd']
           - name: 'Pippin'
             path: 'pippin'
             type: :server
             metrics:
-              - type: :traffic
-                category: :network
-                files: 'pippin.inet.rrd'
               - type: :disk
                 category: :hardware
                 max: 43980465111040
@@ -283,6 +274,25 @@ data:
               - type: :uptime
                 category: :hardware
                 files: 'pippin.uptime.rrd'
+              - type: :traffic
+                category: :network
+                files: 'pippin.inet.rrd'
+              - title: 'Intel Ethernet Server Adapter i350 #1 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'pippin.iface1.rrd'
+              - title: 'Intel Ethernet Server Adapter i350 #2 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'pippin.iface2.rrd'
+              - title: 'Intel Ethernet Server Adapter i350 #3 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'pippin.iface3.rrd'
+              - title: 'Intel Ethernet Server Adapter i350 #4 (%{suffix})'
+                type: :traffic
+                category: :network
+                files: 'pippin.iface4.rrd'
           - name: 'Samwise'
             path: 'samwise'
             type: :server
@@ -473,18 +483,6 @@ data:
                 type: :traffic
                 category: :vlan
                 files: 'celeborn.iface_23.rrd'
-              - title: 'VLAN Traffic (%{suffix})'
-                type: :traffic
-                category: :vlan
-                aggregated: true
-                name: 'celeborn.vlan.aggregated'
-                files: ['celeborn.iface_17.rrd','celeborn.iface_18.rrd','celeborn.iface_19.rrd']
-              - title: 'VLAN Load (%{suffix})'
-                type: :load
-                category: :vlan
-                aggregated: true
-                name: 'celeborn.vlan.load'
-                files: ['celeborn.iface_17.rrd','celeborn.iface_18.rrd','celeborn.iface_19.rrd']
           - name: 'Legolas'
             path:  'legolas'
             type: :switch
@@ -496,7 +494,87 @@ data:
                 category: :hardware
                 max: 67108864
                 files: 'legolas.mem.rrd'
-              - title: 'Port 21 (T:21) Traffic (%{suffix})'
+              - title: 'Port 1 (P:1) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: '10.0.0.2_10101.rrd'
+              - title: 'Port 2 (P:2) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: '10.0.0.2_10102.rrd'
+              - title: 'Port 3 (P:3) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: '10.0.0.2_10103.rrd'
+              - title: 'Port 4 (P:4) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: '10.0.0.2_10104.rrd'
+              - title: 'Port 5 (P:5) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: '10.0.0.2_10105.rrd'
+              - title: 'Port 6 (P:6) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: '10.0.0.2_10106.rrd'
+              - title: 'Port 7 (P:7) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: '10.0.0.2_10107.rrd'
+              - title: 'Port 8 (P:8) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: '10.0.0.2_10108.rrd'
+              - title: 'Port 9 (P:9) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: '10.0.0.2_10109.rrd'
+              - title: 'Port 10 (P:10) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: '10.0.0.2_10110.rrd'
+              - title: 'Port 11 (P:11) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: '10.0.0.2_10111.rrd'
+              - title: 'Port 12 (P:12) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: '10.0.0.2_10112.rrd'
+              - title: 'Port 13 (P:13) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: '10.0.0.2_10113.rrd'
+              - title: 'Port 14 (P:14) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: '10.0.0.2_10114.rrd'
+              - title: 'Port 15 (P:15) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: '10.0.0.2_10115.rrd'
+              - title: 'Port 16 (P:16) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: '10.0.0.2_10116.rrd'
+              - title: 'Port 17 (P:17) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: '10.0.0.2_10117.rrd'
+              - title: 'Port 18 (P:18) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: '10.0.0.2_10118.rrd'
+              - title: 'Port 19 (P:19) Traffic - RAUL-CIMC (%{suffix})'
+                type: :traffic
+                category: :network
+                files: '10.0.0.2_10119.rrd'
+              - title: 'Port 20 (P:20) Traffic (%{suffix})'
+                type: :traffic
+                category: :network
+                files: '10.0.0.2_10120.rrd'
+              - title: 'Port 21 (P:21) Traffic (%{suffix})'
                 type: :traffic
                 category: :network
                 files: '10.0.0.2_10121.rrd'
@@ -528,28 +606,10 @@ data:
                 type: :traffic
                 category: :vlan
                 files: '10.0.0.2_3001.rrd'
-              - title: 'VLAN Traffic (%{suffix})'
-                type: :traffic
-                category: :vlan
-                aggregated: true
-                name: '10.0.0.2_vlan.traffic.aggregated'
-                files: ['10.0.0.2_1000.rrd','10.0.0.2_2000.rrd','10.0.0.2_3000.rrd','10.0.0.2_3001.rrd']
-              - title: 'VLAN Load (%{suffix})'
-                type: :load
-                category: :vlan
-                aggregated: true
-                name: '10.0.0.2_vlan.load.aggregated'
-                files: ['10.0.0.2_1000.rrd','10.0.0.2_2000.rrd','10.0.0.2_3000.rrd','10.0.0.2_3001.rrd']
           - name: 'GAME01'
             path: 'csgo01'
             type: :server
             metrics:
-              - type: :traffic
-                category: :network
-                files: 'csgo01.iface.eth0.rrd'
-              - type: :traffic
-                category: :network
-                files: 'csgo01.iface.eth1.rrd'
               - type: :load
                 category: :hardware
                 os: :linux
@@ -574,6 +634,12 @@ data:
               - type: :uptime
                 category: :hardware
                 files: 'csgo01.uptime.rrd'
+              - type: :traffic
+                category: :network
+                files: 'csgo01.iface.eth0.rrd'
+              - type: :traffic
+                category: :network
+                files: 'csgo01.iface.eth1.rrd'
           - name: 'HYPER-V01'
             path: 'vm01'
             type: :server
@@ -700,9 +766,6 @@ data:
             metrics:
               - type: :traffic
                 category: :network
-                files: 'iqraul01.nic.0.rrd'
-              - type: :traffic
-                category: :network
                 files: 'iqraul01.nic.1.rrd'
               - type: :cpu
                 category: :hardware
@@ -712,30 +775,33 @@ data:
                 max: 68719476736
                 os: :linux
                 files: 'iqraul01.memory.rrd'
-      - name: 'ore03.obscured.se'
-        nodes:
-          - name: 'Eomer'
-            path: 'eomer'
-            type: :server
-            metrics:
-              - type: :disk
-                category: :hardware
-                max: 43980465111040
-                highlighted: true
-                files: 'eomer.disk.rrd'
               - type: :traffic
                 category: :network
-                files: 'eomer.inet.rrd'
-              - type: :memory
-                category: :hardware
-                max: 8589934592
-                files: 'eomer.mem.rrd'
-              - type: :cpu
-                category: :hardware
-                files: 'eomer.totalcpu.rrd'
-              - type: :uptime
-                category: :hardware
-                files: 'eomer.uptime.rrd'
+                files: 'iqraul01.nic.0.rrd'
+      - name: 'ore03.obscured.se'
+        nodes:
+          #- name: 'Eomer'
+          #  path: 'eomer'
+          #  type: :server
+          #  metrics:
+          #    - type: :disk
+          #      category: :hardware
+          #      max: 43980465111040
+          #      highlighted: true
+          #      files: 'eomer.disk.rrd'
+          #    - type: :traffic
+          #      category: :network
+          #      files: 'eomer.inet.rrd'
+          #    - type: :memory
+          #      category: :hardware
+          #      max: 8589934592
+          #      files: 'eomer.mem.rrd'
+          #    - type: :cpu
+          #      category: :hardware
+          #      files: 'eomer.totalcpu.rrd'
+          #    - type: :uptime
+          #      category: :hardware
+          #      files: 'eomer.uptime.rrd'
           - name: 'Galadriel'
             path: 'galadriel'
             type: :server
