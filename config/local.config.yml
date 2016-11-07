@@ -780,28 +780,28 @@ data:
                 files: 'iqraul01.nic.0.rrd'
       - name: 'ore03.obscured.se'
         nodes:
-          - name: 'Eomer'
-            path: 'eomer'
-            type: :server
-            metrics:
-              - type: :disk
-                category: :hardware
-                max: 43980465111040
-                highlighted: true
-                files: 'eomer.disk.rrd'
-              - type: :traffic
-                category: :network
-                files: 'eomer.inet.rrd'
-              - type: :memory
-                category: :hardware
-                max: 8589934592
-                files: 'eomer.mem.rrd'
-              - type: :cpu
-                category: :hardware
-                files: 'eomer.totalcpu.rrd'
-              - type: :uptime
-                category: :hardware
-                files: 'eomer.uptime.rrd'
+          #- name: 'Eomer'
+          #  path: 'eomer'
+          #  type: :server
+          #  metrics:
+          #    - type: :disk
+          #      category: :hardware
+          #      max: 43980465111040
+          #      highlighted: true
+          #      files: 'eomer.disk.rrd'
+          #    - type: :traffic
+          #      category: :network
+          #      files: 'eomer.inet.rrd'
+          #    - type: :memory
+          #      category: :hardware
+          #      max: 8589934592
+          #      files: 'eomer.mem.rrd'
+          #    - type: :cpu
+          #      category: :hardware
+          #      files: 'eomer.totalcpu.rrd'
+          #    - type: :uptime
+          #      category: :hardware
+          #      files: 'eomer.uptime.rrd'
           - name: 'Galadriel'
             path: 'galadriel'
             type: :server
