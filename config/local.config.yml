@@ -248,15 +248,15 @@ data:
                 type: :traffic
                 category: :vlan
                 files: 'gimli.iface.5.rrd'
-              - title: 'VLAN 2001 Traffic (%{suffix})'
+              - title: 'VLAN 3000 Traffic (%{suffix})'
                 type: :traffic
                 category: :vlan
                 files: 'gimli.iface.6.rrd'
-              - title: 'VLAN 2002 Traffic (%{suffix})'
+              - title: 'VLAN 3001 Traffic (%{suffix})'
                 type: :traffic
                 category: :vlan
                 files: 'gimli.iface.7.rrd'
-              - title: 'VLAN 3001 Traffic (%{suffix})'
+              - title: 'VLAN 4000 Traffic (%{suffix})'
                 type: :traffic
                 category: :vlan
                 files: 'gimli.iface.8.rrd'
