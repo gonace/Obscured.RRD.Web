@@ -225,6 +225,7 @@ data:
                 category: :hardware
                 max: 8589934592
                 os: :linux
+                files: 'gimli.mem.rrd'
               #- title: 'Translated NAT Packets (%{suffix})'
               #  type: :packets
               #  category: :nat
