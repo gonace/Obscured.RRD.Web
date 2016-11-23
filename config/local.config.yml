@@ -644,9 +644,6 @@ data:
                 category: :hardware
                 os: :linux
                 files: 'csgo01.processes.rrd'
-              - type: :uptime
-                category: :hardware
-                files: 'csgo01.uptime.rrd'
               - type: :traffic
                 category: :network
                 files: 'csgo01.iface.eth0.rrd'
@@ -678,9 +675,6 @@ data:
                 category: :hardware
                 os: :linux
                 files: 'csgo02.processes.rrd'
-              - type: :uptime
-                category: :hardware
-                files: 'csgo02.uptime.rrd'
               - type: :traffic
                 category: :network
                 files: 'csgo02.iface.eth0.rrd'
@@ -709,9 +703,6 @@ data:
                 category: :hardware
                 os: :linux
                 files: 'csgo03.processes.rrd'
-              - type: :uptime
-                category: :hardware
-                files: 'csgo03.uptime.rrd'
               - type: :traffic
                 category: :network
                 files: 'csgo03.iface.eth0.rrd'
@@ -835,24 +826,24 @@ data:
           #    - type: :uptime
           #      category: :hardware
           #      files: 'nas01.uptime.rrd'
-          - name: 'IQRAUL01'
-            path: 'iqraul01'
-            type: :server
-            metrics:
-              - type: :traffic
-                category: :network
-                files: 'iqraul01.nic.1.rrd'
-              - type: :cpu
-                category: :hardware
-                files: 'iqraul01.load.rrd'
-              - type: :memory
-                category: :hardware
-                max: 68719476736
-                os: :linux
-                files: 'iqraul01.memory.rrd'
-              - type: :traffic
-                category: :network
-                files: 'iqraul01.nic.0.rrd'
+          #- name: 'IQRAUL01'
+          #  path: 'iqraul01'
+          #  type: :server
+          #  metrics:
+          #    - type: :traffic
+          #      category: :network
+          #      files: 'iqraul01.nic.1.rrd'
+          #    - type: :cpu
+          #      category: :hardware
+          #      files: 'iqraul01.load.rrd'
+          #    - type: :memory
+          #      category: :hardware
+          #      max: 68719476736
+          #      os: :linux
+          #      files: 'iqraul01.memory.rrd'
+          #    - type: :traffic
+          #      category: :network
+          #      files: 'iqraul01.nic.0.rrd'
       - name: 'ore03.obscured.se'
         nodes:
           #- name: 'Eomer'
