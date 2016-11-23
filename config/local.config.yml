@@ -619,7 +619,7 @@ data:
                 type: :traffic
                 category: :vlan
                 files: '10.0.0.2_3001.rrd'
-          - name: 'GAME01'
+          - name: 'CSGO01'
             path: 'csgo01'
             type: :server
             metrics:
@@ -653,6 +653,68 @@ data:
               - type: :traffic
                 category: :network
                 files: 'csgo01.iface.eth1.rrd'
+          - name: 'CSGO02'
+            path: 'csgo02'
+            type: :server
+            metrics:
+              - type: :load
+                category: :hardware
+                os: :linux
+                files: 'csgo02.load.rrd'
+              - type: :cpu
+                category: :hardware
+                os: :linux
+                files: 'csgo02.cpu.rrd'
+              - type: :memory
+                category: :hardware
+                max: 17179869184
+                os: :linux
+                files: 'csgo02.memory.rrd'
+              - type: :disk
+                category: :hardware
+                max: 322122547200
+                files: 'csgo02.disk.rrd'
+              - type: :processes
+                category: :hardware
+                os: :linux
+                files: 'csgo02.processes.rrd'
+              - type: :uptime
+                category: :hardware
+                files: 'csgo02.uptime.rrd'
+              - type: :traffic
+                category: :network
+                files: 'csgo02.iface.eth0.rrd'
+          - name: 'CSGO03'
+            path: 'csgo03'
+            type: :server
+            metrics:
+              - type: :load
+                category: :hardware
+                os: :linux
+                files: 'csgo03.load.rrd'
+              - type: :cpu
+                category: :hardware
+                os: :linux
+                files: 'csgo03.cpu.rrd'
+              - type: :memory
+                category: :hardware
+                max: 17179869184
+                os: :linux
+                files: 'csgo03.memory.rrd'
+              - type: :disk
+                category: :hardware
+                max: 322122547200
+                files: 'csgo03.disk.rrd'
+              - type: :processes
+                category: :hardware
+                os: :linux
+                files: 'csgo03.processes.rrd'
+              - type: :uptime
+                category: :hardware
+                files: 'csgo03.uptime.rrd'
+              - type: :traffic
+                category: :network
+                files: 'csgo03.iface.eth0.rrd'
           - name: 'HYPER-V01'
             path: 'vm01'
             type: :server
