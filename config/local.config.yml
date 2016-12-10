@@ -650,7 +650,7 @@ data:
               - type: :traffic
                 category: :network
                 files: 'csgo01.iface.eth1.rrd'
-          - name: 'CSGO02'
+          - name: 'csgo02.clanwiki.nu'
             path: 'csgo02'
             type: :server
             metrics:
@@ -664,12 +664,12 @@ data:
                 files: 'csgo02.cpu.rrd'
               - type: :memory
                 category: :hardware
-                max: 17179869184
+                max: 34359738368
                 os: :linux
                 files: 'csgo02.memory.rrd'
               - type: :disk
                 category: :hardware
-                max: 322122547200
+                max: 214748364800
                 files: 'csgo02.disk.rrd'
               - type: :processes
                 category: :hardware
@@ -678,7 +678,10 @@ data:
               - type: :traffic
                 category: :network
                 files: 'csgo02.iface.eth0.rrd'
-          - name: 'CSGO03'
+              - type: :traffic
+                category: :network
+                files: 'csgo02.iface.eth1.rrd'
+          - name: 'csgo03.clanwiki.nu'
             path: 'csgo03'
             type: :server
             metrics:
