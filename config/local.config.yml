@@ -619,7 +619,7 @@ data:
                 type: :traffic
                 category: :vlan
                 files: '10.0.0.2_3001.rrd'
-          - name: 'CSGO01'
+          - name: 'csgo01.clanwiki.nu'
             path: 'csgo01'
             type: :server
             metrics:
