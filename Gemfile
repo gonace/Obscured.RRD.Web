@@ -17,8 +17,7 @@ gem 'sinatra-partial', '~> 1.0.0'
 gem 'sinatra-json', '~> 0.1.0'
 gem 'sinatra-contrib', '~> 1.4.7'
 
-group :prod do
-  gem 'puma', '~> 3.6.2'
-  gem 'unicorn', '~> 5.2.0'
-  gem 'unicorn-worker-killer', '~> 0.4.4'
-end
+#group :prod do
+#  gem 'unicorn', '~> 5.2.0'
+#  gem 'unicorn-worker-killer', '~> 0.4.4'
+#end
