@@ -6,6 +6,9 @@ require File.expand_path('init', File.dirname(__FILE__))
 Obscured.load_config!
 Obscured::Logger.info "Starting, env: #{ENV['RACK_ENV']}"
 
+if defined?(PhusionPassenger) && PhusionPassenger.respond_to?(:install_framework_extensions!)
+  PhusionPassenger.install_framework_extensions!
+end
 
 # map the controllers to routes
 map('/') {
