@@ -453,7 +453,7 @@ data:
                 files: 'celeborn.cpu.rrd'
               - type: :memory
                 category: :hardware
-                max: 8589934592
+                max: 34359738368
                 os: :linux
                 files: 'celeborn.mem.rrd'
               - title: 'Port 1 (0:0)'
