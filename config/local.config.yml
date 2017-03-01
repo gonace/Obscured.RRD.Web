@@ -440,62 +440,54 @@ data:
       - name: 'ore02.obscured.se'
         nodes:
           - name: 'Celeborn'
-            path:  'celeborn'
+            path: 'celeborn'
             type: :router
             metrics:
+              - type: :load
+                category: :hardware
+                os: :linux
+                files: 'celeborn.load.rrd'
               - type: :cpu
                 category: :hardware
+                os: :linux
                 files: 'celeborn.cpu.rrd'
-              - title: 'Translated NAT Packets (%{suffix})'
-                type: :packets
-                category: :nat
-                os: :cisco
-                files: 'celeborn.nat.statistics.rrd'
-              - title: 'Rejected NAT Packets (%{suffix})'
-                type: :packets
-                category: :nat
-                os: :cisco
-                files: 'celeborn.nat.rejected.rrd'
               - type: :memory
                 category: :hardware
-                max: 268435456
+                max: 8589934592
+                os: :linux
                 files: 'celeborn.mem.rrd'
-              - title: 'Port 1 (T:1) Traffic (%{suffix})'
+              - title: 'Port 1 (0:0)'
                 type: :traffic
                 category: :network
-                files: 'celeborn.iface_1.rrd'
-              - title: 'Port 2 (T:2) Traffic (%{suffix})'
+                files: 'celeborn.iface.1.rrd'
+              - title: 'Port 2 (0:1)'
                 type: :traffic
                 category: :network
-                files: 'celeborn.iface_2.rrd'
+                files: 'celeborn.iface.2.rrd'
               - title: 'VLAN 2000 Traffic (%{suffix})'
                 type: :traffic
                 category: :vlan
-                files: 'celeborn.iface_17.rrd'
-              - title: 'VLAN 3000 Traffic (%{suffix})'
+                files: 'celeborn.vlan.2000.rrd'
+              - title: 'VLAN 2001 Traffic (%{suffix})'
                 type: :traffic
                 category: :vlan
-                files: 'celeborn.iface_18.rrd'
-              - title: 'VLAN 3001 Traffic (%{suffix})'
+                files: 'celeborn.vlan.2001.rrd'
+              - title: 'VLAN 2002 Traffic (%{suffix})'
                 type: :traffic
                 category: :vlan
-                files: 'celeborn.iface_19.rrd'
-              - title: 'VLAN 4000 Traffic (%{suffix})'
+                files: 'celeborn.vlan.2002.rrd'
+              - title: 'VLAN 2003 Traffic (%{suffix})'
                 type: :traffic
                 category: :vlan
-                files: 'celeborn.iface_20.rrd'
-              - title: 'VLAN 4001 Traffic (%{suffix})'
+                files: 'celeborn.vlan.2003.rrd'
+              - title: 'VLAN 2005 Traffic (%{suffix})'
                 type: :traffic
                 category: :vlan
-                files: 'celeborn.iface_21.rrd'
-              - title: 'VLAN 4002 Traffic (%{suffix})'
+                files: 'celeborn.vlan.2005.rrd'
+              - title: 'VLAN 2255 Traffic (%{suffix})'
                 type: :traffic
                 category: :vlan
-                files: 'celeborn.iface_22.rrd'
-              - title: 'VLAN 1001 Traffic (%{suffix})'
-                type: :traffic
-                category: :vlan
-                files: 'celeborn.iface_23.rrd'
+                files: 'celeborn.vlan.2255.rrd'
           - name: 'Legolas'
             path:  'legolas'
             type: :switch
@@ -619,7 +611,7 @@ data:
                 type: :traffic
                 category: :vlan
                 files: '10.0.0.2_3001.rrd'
-          - name: 'csgo01.clanwiki.nu'
+          - name: 'CSGO01'
             path: 'csgo01'
             type: :server
             metrics:
