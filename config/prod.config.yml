@@ -270,7 +270,7 @@ data:
             metrics:
               - type: :disk
                 category: :hardware
-                max: 43980465111040
+                max: 54975581388800
                 highlighted: true
                 files: 'pippin.disk.rrd'
               - type: :cpu
