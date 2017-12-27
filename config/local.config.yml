@@ -766,7 +766,7 @@ data:
                 files: 'pfsense.cpu.rrd'
               - type: :memory
                 category: :hardware
-                max: 8589934592
+                max: 17179869184
                 os: :linux
                 files: 'pfsense.mem.rrd'
               - title: 'Port 1 (0:0)'
@@ -791,7 +791,7 @@ data:
                 files: 'galadriel.inet.rrd'
               - type: :memory
                 category: :hardware
-                max: 17179869184
+                max: 8589934592
                 files: 'galadriel.mem.rrd'
               - type: :cpu
                 category: :hardware
