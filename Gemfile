@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.4.1'
+ruby '2.4.3'
 
 gem 'dalli', '~> 2.7.6'
 gem 'recursive-open-struct', '~> 1.0.5'
