@@ -408,7 +408,7 @@ data:
                 files: 'sauron.iface.10124.rrd'
       - name: 'ore02.obscured.link'
         nodes:
-          - name: 'Celeborn'
+          - name: 'pfsense'
             path: 'celeborn'
             type: :router
             metrics:
