@@ -16,5 +16,6 @@
               %span.caret
             %ul.dropdown-menu
               - group['nodes'].each do |source|
-                %li
-                  %a{:href => "/metrics/#{group['name']}/#{source['path']}"}= source['name']
+                - unless source['hidden']
+                  %li
+                    %a{:href => "/metrics/#{group['name']}/#{source['path']}"}= source['name']
