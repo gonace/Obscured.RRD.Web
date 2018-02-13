@@ -580,7 +580,8 @@ data:
                 type: :traffic
                 category: :vlan
                 files: '10.0.0.2_3001.rrd'
-          - name: 'CSGO01'
+          - name: 'csgo01.clanwiki.nu'
+            hidden: true
             path: 'csgo01'
             type: :server
             metrics:
@@ -612,6 +613,7 @@ data:
                 category: :network
                 files: 'csgo01.iface.eth1.rrd'
           - name: 'csgo02.clanwiki.nu'
+            hidden: true
             path: 'csgo02'
             type: :server
             metrics:
@@ -643,6 +645,7 @@ data:
                 category: :network
                 files: 'csgo02.iface.eth1.rrd'
           - name: 'csgo03.clanwiki.nu'
+            hidden: true
             path: 'csgo03'
             type: :server
             metrics:
@@ -671,6 +674,7 @@ data:
                 category: :network
                 files: 'csgo03.iface.eth0.rrd'
           - name: 'HYPER-V01'
+            hidden: true
             path: 'vm01'
             type: :server
             metrics:
@@ -691,6 +695,7 @@ data:
                 category: :hardware
                 files: 'vm01.uptime.rrd'
           - name: 'HYPER-V02'
+            hidden: true
             path: 'vm02'
             type: :server
             metrics:
@@ -711,6 +716,7 @@ data:
                 category: :hardware
                 files: 'vm02.uptime.rrd'
           - name: 'HYPER-V03'
+            hidden: true
             path: 'vm03'
             type: :server
             metrics:
@@ -731,6 +737,7 @@ data:
                 category: :hardware
                 files: 'vm03.uptime.rrd'
           - name: 'HYPER-V04'
+            hidden: true
             path: 'vm05'
             type: :server
             metrics:
