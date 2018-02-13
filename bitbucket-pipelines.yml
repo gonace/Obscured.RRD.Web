@@ -8,7 +8,6 @@ pipelines:
   default:
     - step:
         script:
-          - bundler --version
           - bundle install
   #branches:
   #  master:
