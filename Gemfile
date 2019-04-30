@@ -14,5 +14,6 @@ gem 'sinatra-partial'
 
 
 group :development do
-  gem 'foreman', '~> 0.82.0'
+  gem 'foreman'
+  gem 'puma'
 end
