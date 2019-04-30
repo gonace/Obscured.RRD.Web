@@ -20,11 +20,11 @@ module Obscured
     end
 
     def debug(msg, object=nil)
-      if !msg.blank?
+      unless msg.blank?
         puts "D, [#{datetime} ##{Process.pid}]  (OBSCURED) DEBUG -- : #{msg}"
       end
 
-      if (!object.nil?)
+      unless object.nil?
         puts '#################'
         puts '###   DEBUG   ###'
         puts '#################'
@@ -41,7 +41,9 @@ module Obscured
       puts "E, [#{datetime} ##{Process.pid}]  (OBSCURED) ERROR -- : #{msg}"
     end
 
+
     private
+
     def self.datetime
       DateTime.now.strftime('%Y-%M-%dT%H:%M:%S.%6N')
     end
