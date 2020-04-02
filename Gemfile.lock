@@ -10,7 +10,7 @@ GEM
     concurrent-ruby (1.1.5)
     dalli (2.7.10)
     ffi (1.10.0)
-    foreman (0.87.0)
+    foreman (0.87.1)
     haml (5.1.2)
       temple (>= 0.8.0)
       tilt
