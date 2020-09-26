@@ -7,7 +7,7 @@ GEM
       minitest (~> 5.1)
       tzinfo (~> 1.1)
     concurrent-ruby (1.1.6)
-    dalli (2.7.10)
+    dalli (2.7.11)
     ffi (1.10.0)
     foreman (0.87.2)
     haml (5.1.2)
