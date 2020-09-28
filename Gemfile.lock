@@ -10,7 +10,7 @@ GEM
     dalli (2.7.11)
     ffi (1.10.0)
     foreman (0.87.2)
-    haml (5.1.2)
+    haml (5.2.0)
       temple (>= 0.8.0)
       tilt
     i18n (1.8.2)
