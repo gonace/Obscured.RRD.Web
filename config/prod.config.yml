@@ -136,23 +136,27 @@ data:
               - title: 'VLAN 2000 Traffic (%{suffix})'
                 type: :traffic
                 category: :vlan
-                files: 'gimli.iface.5.rrd'
+                files: 'gimli.vlan.2000.rrd'
               - title: 'VLAN 3000 Traffic (%{suffix})'
                 type: :traffic
                 category: :vlan
-                files: 'gimli.iface.6.rrd'
+                files: 'gimli.vlan.3000.rrd'
               - title: 'VLAN 3001 Traffic (%{suffix})'
                 type: :traffic
                 category: :vlan
-                files: 'gimli.iface.7.rrd'
+                files: 'gimli.vlan.3001.rrd'
+              - title: 'VLAN 3002 Traffic (%{suffix})'
+                type: :traffic
+                category: :vlan
+                files: 'gimli.vlan.3002.rrd'
               - title: 'VLAN 4000 Traffic (%{suffix})'
                 type: :traffic
                 category: :vlan
-                files: 'gimli.iface.8.rrd'
+                files: 'gimli.vlan.4000.rrd'
               - title: 'VLAN 4001 Traffic (%{suffix})'
                 type: :traffic
                 category: :vlan
-                files: 'gimli.iface.9.rrd'
+                files: 'gimli.vlan.4001.rrd'
           - name: 'Boromir'
             path: 'boromir'
             type: :switch
@@ -209,11 +213,11 @@ data:
                 type: :traffic
                 category: :vlan
                 files: 'boromir.vlan.1.rrd'
-              - title: 'VLAN 845 Traffic - DitigalTV (%{suffix})'
+              - title: 'VLAN 845 Traffic - Television (%{suffix})'
                 type: :traffic
                 category: :vlan
                 files: 'boromir.vlan.845.rrd'
-              - title: 'VLAN 2000 Traffic - Network Services (%{suffix})'
+              - title: 'VLAN 2000 Traffic - Services (%{suffix})'
                 type: :traffic
                 category: :vlan
                 files: 'boromir.vlan.2000.rrd'
@@ -225,14 +229,14 @@ data:
                 type: :traffic
                 category: :vlan
                 files: 'boromir.vlan.3001.rrd'
+              - title: 'VLAN 3002 Traffic - VPN (%{suffix})'
+                type: :traffic
+                category: :vlan
+                files: 'boromir.vlan.3002.rrd'
               - title: 'VLAN 4000 Traffic - Servers (%{suffix})'
                 type: :traffic
                 category: :vlan
                 files: 'boromir.vlan.4000.rrd'
-              - title: 'VLAN 4001 Traffic - Virtual Machines (%{suffix})'
-                type: :traffic
-                category: :vlan
-                files: 'boromir.vlan.4001.rrd'
           - name: 'Pippin'
             path: 'pippin'
             type: :server
