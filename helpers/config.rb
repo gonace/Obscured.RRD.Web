@@ -1,7 +1,7 @@
 module Obscured
   extend self
   def env
-    ENV['OBSCURED_ENV'] || 'local'
+    ENV['OBSCURED_ENV'] || 'prod'
   end
 
   def cfg_file
