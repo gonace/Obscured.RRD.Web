@@ -125,14 +125,22 @@ data:
                 max: 8589934592
                 os: :linux
                 files: 'gimli.mem.rrd'
-              - title: 'Port 1 (0:0)'
+              - title: 'Port 1'
                 type: :traffic
                 category: :network
                 files: 'gimli.iface.1.rrd'
-              - title: 'Port 2 (0:1)'
+              - title: 'Port 2'
                 type: :traffic
                 category: :network
                 files: 'gimli.iface.2.rrd'
+              - title: 'Port 3'
+                type: :traffic
+                category: :network
+                files: 'gimli.iface.3.rrd'
+              - title: 'Port 4'
+                type: :traffic
+                category: :network
+                files: 'gimli.iface.4.rrd'
               - title: 'VLAN 2000 Traffic (%{suffix})'
                 type: :traffic
                 category: :vlan
