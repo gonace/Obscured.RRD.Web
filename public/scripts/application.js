@@ -52,7 +52,7 @@
         }, 100);
 
         //Clipboard
-        new Clipboard('*[data-copy="true"]');
+        new ClipboardJS('*[data-copy="true"]');
 
         //Tooltip
         $(function () {
