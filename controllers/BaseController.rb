@@ -3,7 +3,6 @@ class BaseController < Sinatra::Base
   register Sinatra::Flash
   register Sinatra::Partial
 
-  enable :sessions
   set :dump_errors, true
   set :raise_errors, true
   if :environment == :local || :environment == :development

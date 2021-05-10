@@ -3,7 +3,6 @@ class ErrorController < Sinatra::Base
   register Sinatra::Flash
   register Sinatra::Partial
 
-  enable :sessions
   set :views, settings.root + '/../views/error'
 
   get '/401' do
