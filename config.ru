@@ -8,22 +8,31 @@ Obscured::Logger.info "Starting, env: #{ENV['RACK_ENV']}"
 
 
 # map the controllers to routes
-map('/') {
-  use Rack::Static, :urls => %w(/graphs /images /script /styles), :root => 'public'
+map('/') do
+  use Rack::Static, urls: %w[/graphs /images /script /styles], root: 'public',
+                    header_rules: [
+                      # Cache all static files in public caches (e.g. Rack::Cache)
+                      #  as well as in the browser
+                      [:all, { 'Cache-Control' => 'public, max-age=31536000' }],
+
+                      # Provide web fonts with cross-origin access-control-headers
+                      #  Firefox requires this when serving assets using a Content Delivery Network
+                      [:fonts, { 'Access-Control-Allow-Origin' => '*' }]
+                    ]
   run HomeController
-}
+end
 
-map('/error') {
+map('/error') do
   run ErrorController
-}
+end
 
-map('/metric') {
+map('/metric') do
   run MetricController
-}
+end
 
-map('/metrics') {
+map('/metrics') do
   run MetricsController
-}
+end
 
 
 at_exit do
