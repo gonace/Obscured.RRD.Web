@@ -5,7 +5,7 @@ require File.expand_path('init', File.dirname(__FILE__))
 
 Obscured.load_config!
 Obscured::Logger.info "Starting, env: #{ENV['RACK_ENV']}"
-
+use Rack::Deflater
 
 # map the controllers to routes
 map('/') do
