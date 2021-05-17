@@ -9,7 +9,7 @@ Obscured::Logger.info "Starting, env: #{ENV['RACK_ENV']}"
 
 # map the controllers to routes
 map('/') do
-  use Rack::Static, urls: %w[/graphs /images /script /styles], root: 'public',
+  use Rack::Static, urls: %w[/graphs /images], root: 'public',
                     header_rules: [
                       # Cache all static files in public caches (e.g. Rack::Cache)
                       #  as well as in the browser
@@ -20,6 +20,18 @@ map('/') do
                       [:fonts, { 'Access-Control-Allow-Origin' => '*' }]
                     ]
   run HomeController
+end
+
+map '/assets' do
+  env = Sprockets::Environment.new
+  env.js_compressor  = :uglify
+  env.css_compressor = :scss
+  env.append_path 'assets/scripts'
+  env.append_path 'assets/styles'
+  run env
+
+  puts "Sprockets.root           => #{env.root}"
+  puts "Sprockets.paths          => #{env.paths}"
 end
 
 map('/error') do

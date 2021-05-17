@@ -16,6 +16,7 @@ require 'sinatra/cookies'
 require 'sinatra/flash'
 require 'sinatra/json'
 require 'sinatra/partial'
+require 'sprockets'
 
 
 ###
