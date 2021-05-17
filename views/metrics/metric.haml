@@ -22,7 +22,7 @@
             .panel-heading
               = graph.name
             .panel-body
-              %img{:src => "/graphs/#{graph.node.path}/#{graph.image}", :alt => graph.name, width: '100%'}
+              %img{:src => "/graphs/#{graph.node.path}/#{graph.image}", :alt => graph.name, height: '100%', width: '100%'}
 
     .col-md-2{:role => 'complementary'}
       %nav.bs-docs-sidebar.hidden-print.hidden-xs.hidden-sm.affix-top

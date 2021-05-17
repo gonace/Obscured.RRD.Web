@@ -23,7 +23,7 @@
               = graph.name
             .panel-body
               %a{:href => "/metric/#{graph.node.group}/#{graph.node.path}/#{graph.id}" }
-                %img{:src => "/graphs/#{graph.node.path}/#{graph.image}", :alt => graph.name, width: '100%'}
+                %img{:src => "/graphs/#{graph.node.path}/#{graph.image}", :alt => graph.name, height: '100%', width: '100%'}
 
     .col-md-2{:role => 'complementary'}
       %nav.bs-docs-sidebar.hidden-print.hidden-xs.hidden-sm.affix-top
