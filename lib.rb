@@ -5,6 +5,7 @@ $LOAD_PATH << File.dirname(__FILE__)
 # Gems
 ##
 require 'dalli'
+require 'execjs'
 require 'haml'
 require 'json'
 require 'pp'

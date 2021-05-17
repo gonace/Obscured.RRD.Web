@@ -75,6 +75,7 @@ PLATFORMS
 
 DEPENDENCIES
   dalli
+  execjs
   foreman
   haml
   json
