@@ -9,7 +9,7 @@ use Rack::Deflater
 
 # map the controllers to routes
 map('/') do
-  use Rack::Static, urls: %w[/graphs /images], root: 'public',
+  use Rack::Static, urls: %w[/graphs /images /robots.txt], root: 'public',
                     header_rules: [
                       # Cache all static files in public caches (e.g. Rack::Cache)
                       #  as well as in the browser
