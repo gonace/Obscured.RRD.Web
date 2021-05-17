@@ -5,13 +5,13 @@
         %a{:href => 'https://www.obscured.se'} obscured.se
     %p
       Obscured.RRD <a href="#">1.0</a>, designed and built with all the love in the world by
-      %a{:href => 'http://www.getbootstrap.com', :target => '_blank'} @bootstrap
+      %a{:href => 'http://www.getbootstrap.com', :rel => 'noreferrer', :target => '_blank'} @bootstrap
       and
       = succeed '.' do
-        %a{:href => 'http://www.obscured.se/', :target => '_blank'} @obscured
+        %a{:href => 'http://www.obscured.se/', :rel => 'noreferrer', :target => '_blank'} @obscured
       Maintained by
       = succeed '.' do
-        %a{:href => 'http://www.gonace.com/', :target => '_blank'} @gonace
+        %a{:href => 'http://www.gonace.com/', :rel => 'noreferrer', :target => '_blank'} @gonace
     - if defined? render_time
       %p Page rendered in #{Time.now - render_time} seconds
     %span.footer-brand
