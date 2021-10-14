@@ -19,5 +19,5 @@ gem 'uglifier'
 
 group :development do
   gem 'foreman'
-  gem 'puma'
+  gem 'puma', '>= 5.5.1'
 end
