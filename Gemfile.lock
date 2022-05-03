@@ -28,7 +28,7 @@ GEM
     rack (2.2.3)
     rack-cache (1.12.1)
       rack (>= 0.4)
-    rack-protection (2.1.0)
+    rack-protection (2.2.0)
       rack
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
@@ -37,22 +37,22 @@ GEM
     rrd-ffi (0.2.14)
       activesupport
       ffi
-    ruby2_keywords (0.0.2)
+    ruby2_keywords (0.0.5)
     sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    sinatra (2.1.0)
+    sinatra (2.2.0)
       mustermann (~> 1.0)
       rack (~> 2.2)
-      rack-protection (= 2.1.0)
+      rack-protection (= 2.2.0)
       tilt (~> 2.0)
-    sinatra-contrib (2.1.0)
+    sinatra-contrib (2.2.0)
       multi_json
       mustermann (~> 1.0)
-      rack-protection (= 2.1.0)
-      sinatra (= 2.1.0)
+      rack-protection (= 2.2.0)
+      sinatra (= 2.2.0)
       tilt (~> 2.0)
     sinatra-flash (0.3.0)
       sinatra (>= 1.0.0)
@@ -83,8 +83,8 @@ DEPENDENCIES
   recursive-open-struct
   rrd-ffi
   sass
-  sinatra
-  sinatra-contrib
+  sinatra (>= 2.2.0)
+  sinatra-contrib (>= 2.2.0)
   sinatra-flash
   sinatra-partial
   sprockets
