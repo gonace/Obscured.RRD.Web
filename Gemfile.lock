@@ -78,7 +78,7 @@ DEPENDENCIES
   foreman
   haml
   json
-  puma
+  puma (>= 5.6.4)
   rack-cache
   recursive-open-struct
   rrd-ffi
