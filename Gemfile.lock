@@ -83,8 +83,8 @@ DEPENDENCIES
   recursive-open-struct
   rrd-ffi
   sass
-  sinatra
-  sinatra-contrib
+  sinatra (>= 2.2.0)
+  sinatra-contrib (>= 2.2.0)
   sinatra-flash
   sinatra-partial
   sprockets
