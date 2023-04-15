@@ -8,8 +8,8 @@
     %meta{:content => 'width=device-width, initial-scale=1', :name => 'viewport'}
     %title= title
     %link{:rel => 'icon', :type => 'image/x-icon', :href => '/homer/img/favicon.ico'}
-    = partial :'../shared/partials/styles'
-    = partial :'../shared/partials/scripts'
+    = haml :'../shared/partials/styles'
+    = haml :'../shared/partials/scripts'
 
   %body.bs-docs-home
     = yield

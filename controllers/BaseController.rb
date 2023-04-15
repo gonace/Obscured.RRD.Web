@@ -1,7 +1,6 @@
 class BaseController < Sinatra::Base
   register Sinatra::ConfigFile
   register Sinatra::Flash
-  register Sinatra::Partial
 
   set :dump_errors, true
   set :raise_errors, true

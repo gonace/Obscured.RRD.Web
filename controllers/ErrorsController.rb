@@ -1,7 +1,6 @@
 class ErrorController < Sinatra::Base
   register Sinatra::ConfigFile
   register Sinatra::Flash
-  register Sinatra::Partial
 
   set :views, settings.root + '/../views/error'
 

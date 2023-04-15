@@ -3,6 +3,8 @@ ENV['RACK_ENV'] = ENV['OBSCURED_ENV']
 require File.expand_path('lib', File.dirname(__FILE__))
 require File.expand_path('init', File.dirname(__FILE__))
 
+Haml::Template.options[:escape_attrs] = false
+Haml::Template.options[:escape_html] = false
 Obscured.load_config!
 Obscured::Logger.info "Starting, env: #{ENV['RACK_ENV']}"
 use Rack::Deflater

@@ -7,9 +7,9 @@
     %meta{:content => 'IE=edge', 'http-equiv' => 'X-UA-Compatible'}
     %meta{:content => 'width=device-width, initial-scale=1', :name => 'viewport'}
     %title= "Metrics for #{server_name}"
-    = partial :'../shared/partials/scripts'
+    = haml :'../shared/partials/scripts'
     %link{:rel => 'icon', :type => 'image/x-icon', :href => '/homer/img/favicon.ico'}
-    = partial :'../shared/partials/styles'
+    = haml :'../shared/partials/styles'
 
   %body.bs-docs-home
     = haml :'../shared/header'
