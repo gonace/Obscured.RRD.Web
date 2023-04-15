@@ -12,7 +12,7 @@ gem 'sinatra', require: 'sinatra/base'
 gem 'sinatra-contrib'
 gem 'sinatra-flash'
 gem 'sinatra-partial'
-gem 'sprockets', '>= 4.2.0'
+gem 'sprockets'
 gem 'uglifier'
 
 

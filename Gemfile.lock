@@ -84,7 +84,7 @@ DEPENDENCIES
   sinatra-contrib
   sinatra-flash
   sinatra-partial
-  sprockets (>= 4.2.0)
+  sprockets
   uglifier
 
 RUBY VERSION
